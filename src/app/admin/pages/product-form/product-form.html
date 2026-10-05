@@ -1,21 +1,20 @@
 <div class="admin-layout">
   <aside class="admin-sidebar">
     <div class="sidebar-header">
-      <span class="logo-icon">🌱</span>
       <span class="logo-text">Fresh Vibes Admin</span>
     </div>
 
     <nav class="sidebar-nav">
       <a routerLink="/admin" routerLinkActive="active" class="nav-item">
-        <span class="nav-icon">📊</span>
+        <span class="nav-icon">Dashboard</span>
         <span>{{ 'admin.dashboard' | translate }}</span>
       </a>
       <a routerLink="/admin/products" routerLinkActive="active" class="nav-item">
-        <span class="nav-icon">📦</span>
+        <span class="nav-icon">Products</span>
         <span>{{ 'admin.products' | translate }}</span>
       </a>
       <a routerLink="/" class="nav-item">
-        <span class="nav-icon">🌐</span>
+        <span class="nav-icon">Website</span>
         <span>View Website</span>
       </a>
     </nav>
@@ -61,7 +60,7 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="icon">Icon *</label>
+            <label for="icon">Icon Type *</label>
             <select
               id="icon"
               name="icon"

@@ -8,9 +8,23 @@ import { Observable } from 'rxjs';
 export class TranslationService {
   currentLang = signal('en');
   translations = signal<any>({});
+  private defaultTranslations: any = {};
 
   constructor(private http: HttpClient) {
-    this.loadTranslations('en');
+    this.loadDefaultTranslations();
+  }
+
+  private loadDefaultTranslations() {
+    this.http.get(`./assets/i18n/en.json`).subscribe(
+      (data) => {
+        this.translations.set(data);
+        this.defaultTranslations = data;
+        this.currentLang.set('en');
+      },
+      (error) => {
+        console.error('Error loading default translations:', error);
+      }
+    );
   }
 
   loadTranslations(lang: string) {
@@ -22,6 +36,7 @@ export class TranslationService {
       },
       (error) => {
         console.error('Error loading translations:', error);
+        this.translations.set(this.defaultTranslations);
       }
     );
   }

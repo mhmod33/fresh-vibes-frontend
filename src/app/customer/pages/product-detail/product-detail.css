@@ -45,7 +45,14 @@
 }
 
 .image-placeholder {
-  font-size: 10rem;
+  width: 150px;
+  height: 150px;
+  color: var(--primary-green);
+}
+
+.product-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .product-details h1 {
@@ -108,7 +115,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .btn-buy:hover {
@@ -120,7 +130,6 @@
   display: block;
   font-size: 0.85rem;
   font-weight: 400;
-  margin-top: 0.25rem;
   opacity: 0.9;
 }
 

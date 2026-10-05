@@ -16,22 +16,18 @@
         <p>{{ 'home.whoWeAre.description' | translate }}</p>
         <div class="stats">
           <div class="stat-item">
-            <div class="stat-icon">📦</div>
             <div class="stat-number">3</div>
             <div class="stat-label">{{ 'home.whoWeAre.stats.categories' | translate }}</div>
           </div>
           <div class="stat-item">
-            <div class="stat-icon">🏷️</div>
             <div class="stat-number">25</div>
             <div class="stat-label">{{ 'home.whoWeAre.stats.products' | translate }}</div>
           </div>
           <div class="stat-item">
-            <div class="stat-icon">👥</div>
             <div class="stat-number">5</div>
             <div class="stat-label">{{ 'home.whoWeAre.stats.segments' | translate }}</div>
           </div>
           <div class="stat-item">
-            <div class="stat-icon">⚙️</div>
             <div class="stat-number">9</div>
             <div class="stat-label">{{ 'home.whoWeAre.stats.capabilities' | translate }}</div>
           </div>
@@ -39,16 +35,13 @@
       </div>
       <div class="who-we-are-images">
         <div class="image-placeholder">
-          <span>🌾</span>
-          <small>Harvest</small>
+          <div class="image-label">Harvest</div>
         </div>
         <div class="image-placeholder">
-          <span>🌿</span>
-          <small>Herbs</small>
+          <div class="image-label">Herbs</div>
         </div>
         <div class="image-placeholder">
-          <span>📊</span>
-          <small>Sorting</small>
+          <div class="image-label">Sorting</div>
         </div>
       </div>
     </div>
@@ -60,12 +53,23 @@
     <div class="vision-mission-content">
       <div class="vision-mission-cards">
         <div class="vm-card">
-          <div class="vm-icon">👁️</div>
+          <div class="vm-icon-wrapper">
+            <svg class="vm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-11 8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
           <h3>{{ 'home.visionMission.vision.title' | translate }}</h3>
           <p>{{ 'home.visionMission.vision.description' | translate }}</p>
         </div>
         <div class="vm-card">
-          <div class="vm-icon">🎯</div>
+          <div class="vm-icon-wrapper">
+            <svg class="vm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
           <h3>{{ 'home.visionMission.mission.title' | translate }}</h3>
           <p>{{ 'home.visionMission.mission.description' | translate }}</p>
         </div>
@@ -87,11 +91,15 @@
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <div class="card-image">
-          <span>🥕</span>
+          <div class="image-label">Fresh produce</div>
         </div>
         <div class="card-content">
           <div class="card-number">01</div>
-          <div class="card-icon">🥬</div>
+          <div class="card-icon-wrapper">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
           <h3>{{ 'home.portfolio.fresh.title' | translate }}</h3>
           <p>{{ 'home.portfolio.fresh.description' | translate }}</p>
           <div class="card-badge">{{ 'home.portfolio.fresh.products' | translate }}</div>
@@ -99,11 +107,17 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
-          <span>🌱</span>
+          <div class="image-label">Aromatic plants</div>
         </div>
         <div class="card-content">
           <div class="card-number">02</div>
-          <div class="card-icon">🌿</div>
+          <div class="card-icon-wrapper">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C7.58 2 4 5.58 4 10c0 4.42 7 13 7 13s7-8.58 7-13c0-4.42-3.58-8-8-8z"/>
+              <path d="M12 2v10"/>
+              <path d="M12 12c-2.21 0-4 1.79-4 4"/>
+            </svg>
+          </div>
           <h3>{{ 'home.portfolio.aromatic.title' | translate }}</h3>
           <p>{{ 'home.portfolio.aromatic.description' | translate }}</p>
           <div class="card-badge">{{ 'home.portfolio.aromatic.products' | translate }}</div>
@@ -111,11 +125,15 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
-          <span>🌾</span>
+          <div class="image-label">Dry crops</div>
         </div>
         <div class="card-content">
           <div class="card-number">03</div>
-          <div class="card-icon">🌾</div>
+          <div class="card-icon-wrapper">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v18M8 21h8M8 3h8M8 9l8-6M8 15l8 6"/>
+            </svg>
+          </div>
           <h3>{{ 'home.portfolio.dry.title' | translate }}</h3>
           <p>{{ 'home.portfolio.dry.description' | translate }}</p>
           <div class="card-badge">{{ 'home.portfolio.dry.products' | translate }}</div>
@@ -133,31 +151,58 @@
     <div class="values-grid">
       <div class="value-card">
         <div class="value-number">01</div>
-        <div class="value-icon">🏆</div>
+        <div class="value-icon-wrapper">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="7"/>
+            <polyline points="8.21 13.89 7 23 12 23 17 13.89"/>
+            <line x1="12" y1="2" x2="12" y2="4"/>
+          </svg>
+        </div>
         <h3>{{ 'home.coreValues.quality.title' | translate }}</h3>
         <p>{{ 'home.coreValues.quality.description' | translate }}</p>
       </div>
       <div class="value-card">
         <div class="value-number">02</div>
-        <div class="value-icon">🛡️</div>
+        <div class="value-icon-wrapper">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
         <h3>{{ 'home.coreValues.reliability.title' | translate }}</h3>
         <p>{{ 'home.coreValues.reliability.description' | translate }}</p>
       </div>
       <div class="value-card">
         <div class="value-number">03</div>
-        <div class="value-icon">🔄</div>
+        <div class="value-icon-wrapper">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+        </div>
         <h3>{{ 'home.coreValues.flexibility.title' | translate }}</h3>
         <p>{{ 'home.coreValues.flexibility.description' | translate }}</p>
       </div>
       <div class="value-card">
         <div class="value-number">04</div>
-        <div class="value-icon">💼</div>
+        <div class="value-icon-wrapper">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
         <h3>{{ 'home.coreValues.professionalism.title' | translate }}</h3>
         <p>{{ 'home.coreValues.professionalism.description' | translate }}</p>
       </div>
       <div class="value-card">
         <div class="value-number">05</div>
-        <div class="value-icon">🤝</div>
+        <div class="value-icon-wrapper">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
         <h3>{{ 'home.coreValues.partnerships.title' | translate }}</h3>
         <p>{{ 'home.coreValues.partnerships.description' | translate }}</p>
       </div>
@@ -175,27 +220,55 @@
         <span>Fresh Vibes</span>
       </div>
       <div class="customer-item">
-        <div class="customer-icon">📤</div>
+        <div class="customer-icon-wrapper">
+          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
         <h4>{{ 'home.customers.exporters.title' | translate }}</h4>
         <p>{{ 'home.customers.exporters.description' | translate }}</p>
       </div>
       <div class="customer-item">
-        <div class="customer-icon">🏪</div>
+        <div class="customer-icon-wrapper">
+          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h18v18H3zM9 3v18M15 3v18"/>
+          </svg>
+        </div>
         <h4>{{ 'home.customers.supermarkets.title' | translate }}</h4>
         <p>{{ 'home.customers.supermarkets.description' | translate }}</p>
       </div>
       <div class="customer-item">
-        <div class="customer-icon">🏭</div>
+        <div class="customer-icon-wrapper">
+          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V3l-7 5v12z"/>
+          </svg>
+        </div>
         <h4>{{ 'home.customers.factories.title' | translate }}</h4>
         <p>{{ 'home.customers.factories.description' | translate }}</p>
       </div>
       <div class="customer-item">
-        <div class="customer-icon">📦</div>
+        <div class="customer-icon-wrapper">
+          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
         <h4>{{ 'home.customers.wholesalers.title' | translate }}</h4>
         <p>{{ 'home.customers.wholesalers.description' | translate }}</p>
       </div>
       <div class="customer-item">
-        <div class="customer-icon">🍽️</div>
+        <div class="customer-icon-wrapper">
+          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
         <h4>{{ 'home.customers.restaurants.title' | translate }}</h4>
         <p>{{ 'home.customers.restaurants.description' | translate }}</p>
       </div>
@@ -212,17 +285,65 @@
       @for (step of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track step) {
         <div class="supply-step">
           <div class="step-number">{{ step }}</div>
-          <div class="step-icon">
+          <div class="step-icon-wrapper">
             @switch (step) {
-              @case (1) { 🌱 }
-              @case (2) { 🔍 }
-              @case (3) { 🔀 }
-              @case (4) { ⭐ }
-              @case (5) { ✂️ }
-              @case (6) { 📦 }
-              @case (7) { ✅ }
-              @case (8) { 🚚 }
-              @case (9) { 📍 }
+              @case (1) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              }
+              @case (2) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              }
+              @case (3) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="22 3 2 3 10 12.46 22 3"/>
+                  <path d="M5.5 13.5L8 16l5-5"/>
+                </svg>
+              }
+              @case (4) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L9 8.26 12 2z"/>
+                </svg>
+              }
+              @case (5) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="6" r="3"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                  <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                  <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+                </svg>
+              }
+              @case (6) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              }
+              @case (7) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 11 12 14 22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              }
+              @case (8) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13"/>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 11"/>
+                  <circle cx="5.5" cy="18.5" r="2.5"/>
+                </svg>
+              }
+              @case (9) {
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              }
             }
           </div>
           <p>{{ 'home.supplyCapabilities.steps.' + step | translate }}</p>
@@ -239,32 +360,66 @@
     </div>
     <div class="process-steps">
       <div class="process-step">
-        <div class="process-icon">📋</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.requirement.title' | translate }}</h4>
         <p>{{ 'home.process.steps.requirement.description' | translate }}</p>
       </div>
       <div class="process-step">
-        <div class="process-icon">🔍</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.selection.title' | translate }}</h4>
         <p>{{ 'home.process.steps.selection.description' | translate }}</p>
       </div>
       <div class="process-step">
-        <div class="process-icon">⭐</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L9 8.26 12 2z"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.grading.title' | translate }}</h4>
         <p>{{ 'home.process.steps.grading.description' | translate }}</p>
       </div>
       <div class="process-step">
-        <div class="process-icon">✂️</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="6" cy="6" r="3"/>
+            <circle cx="6" cy="18" r="3"/>
+            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.preparation.title' | translate }}</h4>
         <p>{{ 'home.process.steps.preparation.description' | translate }}</p>
       </div>
       <div class="process-step">
-        <div class="process-icon">📦</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.packaging.title' | translate }}</h4>
         <p>{{ 'home.process.steps.packaging.description' | translate }}</p>
       </div>
       <div class="process-step">
-        <div class="process-icon">🚚</div>
+        <div class="process-icon-wrapper">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="3" width="15" height="13"/>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 11"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
         <h4>{{ 'home.process.steps.delivery.title' | translate }}</h4>
         <p>{{ 'home.process.steps.delivery.description' | translate }}</p>
       </div>

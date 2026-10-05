@@ -157,15 +157,13 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  border: 2px dashed var(--primary-green);
 }
 
-.image-placeholder span {
-  font-size: 3rem;
-}
-
-.image-placeholder small {
+.image-label {
   color: var(--primary-green);
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
 /* Vision & Mission Section */
@@ -195,9 +193,21 @@
   backdrop-filter: blur(10px);
 }
 
-.vm-icon {
-  font-size: 2.5rem;
+.vm-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
+}
+
+.vm-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
 }
 
 .vm-card h3 {
@@ -283,7 +293,7 @@
   color: rgba(26, 77, 46, 0.1);
 }
 
-.card-icon {
+.card-icon-wrapper {
   width: 60px;
   height: 60px;
   background: var(--primary-green);
@@ -291,8 +301,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.card-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
 }
 
 .portfolio-card:nth-child(2) .card-icon {
@@ -368,7 +383,7 @@
   position: relative;
 }
 
-.value-icon {
+.value-icon-wrapper {
   width: 80px;
   height: 80px;
   background: var(--primary-green);
@@ -376,9 +391,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
   margin: 0 auto 1.5rem;
   position: relative;
+}
+
+.value-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
 }
 
 .value-icon::after {

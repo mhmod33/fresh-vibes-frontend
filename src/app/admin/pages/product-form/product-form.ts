@@ -29,7 +29,7 @@ export class ProductFormComponent {
     { id: 'dry', name: 'Dry Crops' }
   ];
 
-  icons = ['🥔', '🍅', '🧅', '🍆', '🌶️', '🫑', '🥒', '🥕', '🎃', '🥬', '🍄', '🌿', '🌱', '🥑'];
+  icons = ['Potato', 'Tomato', 'Onion', 'Eggplant', 'Chili', 'Pepper', 'Cucumber', 'Carrot', 'Squash', 'Cabbage', 'Mushroom', 'Herb', 'Leaf', 'Avocado'];
 
   constructor(
     private route: ActivatedRoute,
