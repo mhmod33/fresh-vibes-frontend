@@ -1,0 +1,67 @@
+<section class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>{{ 'auth.register' | translate }}</h1>
+        <p>Create your Fresh Vibes account</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" class="auth-form">
+        <div class="form-group">
+          <label for="name">{{ 'auth.name' | translate }}</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="registerForm.name"
+            required
+            placeholder="Your full name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">{{ 'auth.email' | translate }}</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="registerForm.email"
+            required
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">{{ 'auth.password' | translate }}</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="registerForm.password"
+            required
+            placeholder="••••••••"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">{{ 'auth.confirmPassword' | translate }}</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="registerForm.confirmPassword"
+            required
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button type="submit" class="btn-submit">{{ 'auth.signUp' | translate }}</button>
+      </form>
+
+      <div class="auth-footer">
+        <p>{{ 'auth.hasAccount' | translate }}</p>
+        <a routerLink="/login" class="btn-link">{{ 'auth.signIn' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</section>

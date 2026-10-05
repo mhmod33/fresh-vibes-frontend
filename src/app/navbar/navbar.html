@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a routerLink="/">
+        <span class="logo-icon">🌱</span>
+        <span class="logo-text">Fresh Vibes</span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <a routerLink="/" class="nav-link">{{ 'nav.home' | translate }}</a>
+      <a routerLink="/about" class="nav-link">{{ 'nav.about' | translate }}</a>
+      <a routerLink="/products" class="nav-link">{{ 'nav.products' | translate }}</a>
+      <a routerLink="/contact" class="nav-link">{{ 'nav.contact' | translate }}</a>
+    </div>
+
+    <div class="navbar-actions">
+      <button class="lang-toggle" (click)="switchLanguage(currentLang === 'en' ? 'ar' : 'en')">
+        {{ currentLang === 'en' ? 'العربية' : 'English' }}
+      </button>
+      <a routerLink="/login" class="btn-login">{{ 'nav.login' | translate }}</a>
+      <a routerLink="/admin" class="btn-admin">{{ 'nav.admin' | translate }}</a>
+    </div>
+  </div>
+</nav>

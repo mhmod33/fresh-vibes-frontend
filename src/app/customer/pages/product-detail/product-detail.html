@@ -1,0 +1,44 @@
+<section class="product-detail-page" *ngIf="product">
+  <div class="container">
+    <div class="breadcrumb">
+      <a routerLink="/">{{ 'nav.home' | translate }}</a>
+      <span>/</span>
+      <a routerLink="/products">{{ 'nav.products' | translate }}</a>
+      <span>/</span>
+      <span>{{ product.name }}</span>
+    </div>
+
+    <div class="product-detail-content">
+      <div class="product-image">
+        <div class="image-placeholder">
+          <span>{{ product.icon }}</span>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        <div class="product-category">
+          <span class="category-badge">{{ product.category }}</span>
+        </div>
+
+        <div class="product-description">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+
+        <div class="product-price">
+          <h3>Price</h3>
+          <p>{{ product.price }}</p>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn-buy">
+            {{ 'products.buyNow' | translate }}
+            <span class="coming-soon">{{ 'products.comingSoon' | translate }}</span>
+          </button>
+          <a routerLink="/contact" class="btn-contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

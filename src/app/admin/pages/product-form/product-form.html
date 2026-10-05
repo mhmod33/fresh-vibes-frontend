@@ -1,0 +1,112 @@
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">🌱</span>
+      <span class="logo-text">Fresh Vibes Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/admin" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>{{ 'admin.dashboard' | translate }}</span>
+      </a>
+      <a routerLink="/admin/products" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📦</span>
+        <span>{{ 'admin.products' | translate }}</span>
+      </a>
+      <a routerLink="/" class="nav-item">
+        <span class="nav-icon">🌐</span>
+        <span>View Website</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>{{ isEditMode ? ('admin.editProduct' | translate) : ('admin.addProduct' | translate) }}</h1>
+      <div class="header-actions">
+        <a routerLink="/" class="btn-logout">Logout</a>
+      </div>
+    </header>
+
+    <div class="form-content">
+      <form (ngSubmit)="onSubmit()" class="product-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Product Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="productForm.name"
+              required
+              placeholder="Enter product name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select
+              id="category"
+              name="category"
+              [(ngModel)]="productForm.category"
+              required
+            >
+              @for (cat of categories; track cat.id) {
+                <option [value]="cat.id">{{ cat.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="icon">Icon *</label>
+            <select
+              id="icon"
+              name="icon"
+              [(ngModel)]="productForm.icon"
+              required
+            >
+              @for (icon of icons; track icon) {
+                <option [value]="icon">{{ icon }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="text"
+              id="price"
+              name="price"
+              [(ngModel)]="productForm.price"
+              placeholder="Enter price or 'Contact for pricing'"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea
+            id="description"
+            name="description"
+            [(ngModel)]="productForm.description"
+            required
+            rows="4"
+            placeholder="Enter product description"
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" (click)="onCancel()" class="btn-cancel">
+            {{ 'admin.cancel' | translate }}
+          </button>
+          <button type="submit" class="btn-submit">
+            {{ 'admin.save' | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,41 @@
+<section class="products-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>{{ 'products.title' | translate }}</h1>
+    </div>
+
+    <div class="categories-filter">
+      @for (cat of categories; track cat.id) {
+        <button
+          class="category-btn"
+          [class.active]="selectedCategory === cat.id"
+          (click)="selectCategory(cat.id)"
+        >
+          {{ cat.name | translate }}
+        </button>
+      }
+    </div>
+
+    <div class="products-grid">
+      @for (product of filteredProducts; track product.id) {
+        <div class="product-card">
+          <div class="product-icon" [style.background-color]="getCategoryColor(product.category)">
+            <span>{{ product.icon }}</span>
+          </div>
+          <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            <div class="product-actions">
+              <a [routerLink]="['/products', product.id]" class="btn-view">
+                {{ 'products.viewDetails' | translate }}
+              </a>
+              <button class="btn-buy">
+                {{ 'products.buyNow' | translate }}
+                <span class="coming-soon">{{ 'products.comingSoon' | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

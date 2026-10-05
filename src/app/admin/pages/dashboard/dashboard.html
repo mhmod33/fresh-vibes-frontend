@@ -1,0 +1,115 @@
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">🌱</span>
+      <span class="logo-text">Fresh Vibes Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/admin" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>{{ 'admin.dashboard' | translate }}</span>
+      </a>
+      <a routerLink="/admin/products" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📦</span>
+        <span>{{ 'admin.products' | translate }}</span>
+      </a>
+      <a routerLink="/" class="nav-item">
+        <span class="nav-icon">🌐</span>
+        <span>View Website</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>{{ 'admin.dashboard' | translate }}</h1>
+      <div class="header-actions">
+        <span class="user-info">Admin User</span>
+        <a routerLink="/" class="btn-logout">Logout</a>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-info">
+            <h3>25</h3>
+            <p>Total Products</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-info">
+            <h3>3</h3>
+            <p>Categories</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <h3>12</h3>
+            <p>Customers</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-info">
+            <h3>5</h3>
+            <p>Pending Orders</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-sections">
+        <div class="dashboard-section">
+          <h2>Recent Products</h2>
+          <div class="recent-products">
+            <div class="product-item">
+              <span class="product-icon">🥔</span>
+              <div class="product-details">
+                <h4>Potatoes</h4>
+                <span class="product-category">Fresh Produce</span>
+              </div>
+              <a routerLink="/admin/products/1/edit" class="btn-edit">Edit</a>
+            </div>
+            <div class="product-item">
+              <span class="product-icon">🍅</span>
+              <div class="product-details">
+                <h4>Tomatoes</h4>
+                <span class="product-category">Fresh Produce</span>
+              </div>
+              <a routerLink="/admin/products/2/edit" class="btn-edit">Edit</a>
+            </div>
+            <div class="product-item">
+              <span class="product-icon">🌿</span>
+              <div class="product-details">
+                <h4>Thyme</h4>
+                <span class="product-category">Aromatic</span>
+              </div>
+              <a routerLink="/admin/products/23/edit" class="btn-edit">Edit</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-section">
+          <h2>Quick Actions</h2>
+          <div class="quick-actions">
+            <a routerLink="/admin/products/new" class="action-card">
+              <span class="action-icon">➕</span>
+              <h3>{{ 'admin.addProduct' | translate }}</h3>
+            </a>
+            <a routerLink="/admin/products" class="action-card">
+              <span class="action-icon">📦</span>
+              <h3>Manage Products</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

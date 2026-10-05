@@ -1,0 +1,79 @@
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">🌱</span>
+      <span class="logo-text">Fresh Vibes Admin</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/admin" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>{{ 'admin.dashboard' | translate }}</span>
+      </a>
+      <a routerLink="/admin/products" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📦</span>
+        <span>{{ 'admin.products' | translate }}</span>
+      </a>
+      <a routerLink="/" class="nav-item">
+        <span class="nav-icon">🌐</span>
+        <span>View Website</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>{{ 'admin.products' | translate }}</h1>
+      <div class="header-actions">
+        <button (click)="addNewProduct()" class="btn-add">
+          <span>➕</span>
+          {{ 'admin.addProduct' | translate }}
+        </button>
+        <a routerLink="/" class="btn-logout">Logout</a>
+      </div>
+    </header>
+
+    <div class="products-content">
+      <div class="products-table-wrapper">
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (product of products; track product.id) {
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <span class="product-icon">{{ product.icon }}</span>
+                    <span class="product-name">{{ product.name }}</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="category-badge">{{ product.category }}</span>
+                </td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                  <div class="action-buttons">
+                    <button (click)="editProduct(product.id)" class="btn-edit" title="Edit">
+                      ✏️
+                    </button>
+                    <button (click)="deleteProduct(product.id)" class="btn-delete" title="Delete">
+                      🗑️
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
