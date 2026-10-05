@@ -16,7 +16,7 @@ export class TranslationService {
   }
 
   private loadDefaultTranslations() {
-    this.http.get<any>(`./assets/i18n/en.json`).subscribe(
+    this.http.get<any>(`i18n/en.json`).subscribe(
       (data) => {
         this.translations.set(data);
         this.defaultTranslations = data;
@@ -32,7 +32,7 @@ export class TranslationService {
 
   loadTranslations(lang: string) {
     this.translationsLoaded.set(false);
-    this.http.get<any>(`./assets/i18n/${lang}.json`).subscribe(
+    this.http.get<any>(`i18n/${lang}.json`).subscribe(
       (data) => {
         this.translations.set(data);
         this.currentLang.set(lang);

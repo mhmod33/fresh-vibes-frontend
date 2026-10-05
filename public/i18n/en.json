@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "contact": "Contact",
+    "login": "Login",
+    "admin": "Admin Dashboard"
+  },
+  "home": {
+    "hero": {
+      "title": "Fresh Agricultural Products",
+      "subtitle": "Professional producer and supplier of fresh, aromatic, medicinal, and dry agricultural crops",
+      "cta": "Explore Products"
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "description": "Fresh Vibes is a professional agricultural products producer and supplier, focusing on fresh, aromatic, medicinal, and dry agricultural crops for B2B customers in the Egyptian market.",
+      "stats": {
+        "categories": "Product categories",
+        "products": "Priced products",
+        "segments": "Customer segments",
+        "capabilities": "Supply capabilities"
+      }
+    },
+    "visionMission": {
+      "vision": {
+        "title": "Our Vision",
+        "description": "Building Fresh Vibes into a trusted and scalable agricultural products company serving customers across Egypt and expanding its product range, market reach, and supply capabilities over time."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "To provide high-quality agricultural products that meet customer requirements while building reliable, long-term business relationships across the agricultural, food-service, processing, and retail sectors."
+      },
+      "tagline": "Connecting agricultural production with the needs of commercial and industrial customers."
+    },
+    "portfolio": {
+      "title": "Our Product Portfolio",
+      "fresh": {
+        "title": "Fresh Agricultural Produce",
+        "description": "Fresh crops prepared to customer requirements for quality, grade, size, quantity, packaging, and delivery schedule.",
+        "products": "23 products"
+      },
+      "aromatic": {
+        "title": "Aromatic & Medicinal Plants",
+        "description": "Supplied to exporters, processors, manufacturers, and related industries in forms suited to commercial and industrial use.",
+        "products": "Thyme, Rosemary & more"
+      },
+      "dry": {
+        "title": "Dry Agricultural Crops",
+        "description": "Selected dry products according to market and customer requirements.",
+        "products": "Onions, Garlic, Sesame"
+      }
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "quality": {
+        "title": "Quality",
+        "description": "Maintaining consistent product quality and meeting customer specifications."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Providing dependable supply and delivery."
+      },
+      "flexibility": {
+        "title": "Flexibility",
+        "description": "Adapting products, quantities, preparation, and packaging to customer requirements."
+      },
+      "professionalism": {
+        "title": "Professionalism",
+        "description": "Building relationships through clear communication and consistent service."
+      },
+      "partnerships": {
+        "title": "Long-Term Partnerships",
+        "description": "Developing lasting relationships with customers and business partners."
+      }
+    },
+    "customers": {
+      "title": "Customers We Serve",
+      "exporters": {
+        "title": "Exporters",
+        "description": "Crops meeting set quality, grading, and packaging needs."
+      },
+      "supermarkets": {
+        "title": "Supermarkets & Retailers",
+        "description": "Consistent quality, grading, and presentation."
+      },
+      "factories": {
+        "title": "Factories & Processors",
+        "description": "Raw materials for food, agricultural, and botanical uses."
+      },
+      "wholesalers": {
+        "title": "Wholesalers & Traders",
+        "description": "Suitable quantities and competitive supply."
+      },
+      "restaurants": {
+        "title": "Restaurants & Hotels",
+        "description": "Fresh, consistent products with regular delivery."
+      }
+    },
+    "supplyCapabilities": {
+      "title": "Our Supply Capabilities",
+      "steps": {
+        "1": "Product sourcing and production",
+        "2": "Quality selection",
+        "3": "Sorting",
+        "4": "Grading",
+        "5": "Preliminary preparation",
+        "6": "Packaging",
+        "7": "Order fulfillment",
+        "8": "Transportation coordination",
+        "9": "Delivery according to customer requirements"
+      }
+    },
+    "process": {
+      "title": "Built Around Your Specification",
+      "steps": {
+        "requirement": {
+          "title": "Requirement",
+          "description": "Specification, volume, and schedule."
+        },
+        "selection": {
+          "title": "Selection",
+          "description": "Matching the right crop to the order."
+        },
+        "grading": {
+          "title": "Grading",
+          "description": "Selection, sorting, and grading to specification."
+        },
+        "preparation": {
+          "title": "Preparation",
+          "description": "Preliminary preparation as required."
+        },
+        "packaging": {
+          "title": "Packaging",
+          "description": "Packed to customer requirements."
+        },
+        "delivery": {
+          "title": "Delivery",
+          "description": "Order fulfillment and transport coordination."
+        }
+      },
+      "tagline": "We work around each customer's specification, not a one-size-fits-all product."
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "categories": {
+      "all": "All Products",
+      "fresh": "Fresh Produce",
+      "aromatic": "Aromatic & Medicinal",
+      "dry": "Dry Crops"
+    },
+    "viewDetails": "View Details",
+    "buyNow": "Buy Now",
+    "comingSoon": "Coming Soon"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "signIn": "Sign In"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "orders": "Orders",
+    "users": "Users",
+    "addProduct": "Add Product",
+    "editProduct": "Edit Product",
+    "deleteProduct": "Delete Product",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}
