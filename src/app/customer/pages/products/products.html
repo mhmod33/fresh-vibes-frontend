@@ -2,6 +2,7 @@
   <div class="container">
     <div class="page-header">
       <h1>{{ 'products.title' | translate }}</h1>
+      <p class="page-subtitle">Discover our premium selection of fresh produce and agricultural products</p>
     </div>
 
     <div class="categories-filter">
@@ -16,24 +17,30 @@
       }
     </div>
 
-    <div class="products-grid">
+    <div class="products-gallery">
       @for (product of filteredProducts; track product.id) {
-        <div class="product-card">
-          <div class="product-icon" [style.background-color]="getCategoryColor(product.category)">
-            <svg class="product-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>{{ product.name }}</h3>
-            <div class="product-actions">
-              <a [routerLink]="['/products', product.id]" class="btn-view">
-                {{ 'products.viewDetails' | translate }}
-              </a>
-              <button class="btn-buy">
-                {{ 'products.buyNow' | translate }}
-                <span class="coming-soon">{{ 'products.comingSoon' | translate }}</span>
-              </button>
+        <div class="product-item">
+          <div class="product-visual">
+            <div class="product-image-wrapper">
+              <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="{{ product.name }}" class="product-image">
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h3>{{ product.name }}</h3>
+                  <p class="product-category">{{ product.category }}</p>
+                  <div class="overlay-actions">
+                    <a [routerLink]="['/products', product.id]" class="btn-view-details">
+                      {{ 'products.viewDetails' | translate }}
+                    </a>
+                    <button class="btn-buy-now">
+                      {{ 'products.buyNow' | translate }}
+                      <span class="badge-soon">{{ 'products.comingSoon' | translate }}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product-label">
+              <span class="label-text">{{ product.name }}</span>
             </div>
           </div>
         </div>

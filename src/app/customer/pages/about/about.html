@@ -1,35 +1,123 @@
 <section class="about-page">
-  <div class="container">
-    <div class="page-header">
-      <h1>{{ 'nav.about' | translate }}</h1>
-      <p>Learn more about Fresh Vibes</p>
+  <!-- Hero Section -->
+  <div class="about-hero">
+    <div class="hero-image-wrapper">
+      <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="About Fresh Vibes" class="hero-bg">
+      <div class="hero-overlay"></div>
     </div>
-
-    <div class="about-content">
-      <div class="about-section">
-        <h2>{{ 'home.whoWeAre.title' | translate }}</h2>
-        <p>{{ 'home.whoWeAre.description' | translate }}</p>
+    <div class="hero-content">
+      <div class="container">
+        <h1>{{ 'nav.about' | translate }}</h1>
+        <p class="hero-subtitle">Delivering Excellence in Fresh Produce Since Day One</p>
       </div>
+    </div>
+  </div>
 
-      <div class="about-section">
-        <h2>{{ 'home.visionMission.vision.title' | translate }}</h2>
-        <p>{{ 'home.visionMission.vision.description' | translate }}</p>
+  <!-- Story Section -->
+  <div class="about-story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <span class="section-label">Our Story</span>
+          <h2>{{ 'home.whoWeAre.title' | translate }}</h2>
+          <p class="lead-paragraph">{{ 'home.whoWeAre.description' | translate }}</p>
+          <div class="story-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <span>Premium Quality</span>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <span>Global Reach</span>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <span>Trusted Partners</span>
+            </div>
+          </div>
+        </div>
+        <div class="story-visual">
+          <div class="visual-card main-card">
+            <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Fresh Produce">
+          </div>
+          <div class="visual-card accent-card">
+            <img src="/assets/logo.png" alt="Fresh Vibes Logo">
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <div class="about-section">
-        <h2>{{ 'home.visionMission.mission.title' | translate }}</h2>
-        <p>{{ 'home.visionMission.mission.description' | translate }}</p>
+  <!-- Vision & Mission Cards -->
+  <div class="vision-mission-section">
+    <div class="container">
+      <div class="vm-grid">
+        <div class="vm-card-large vision-card">
+          <div class="vm-card-content">
+            <div class="vm-badge">Vision</div>
+            <h2>{{ 'home.visionMission.vision.title' | translate }}</h2>
+            <p>{{ 'home.visionMission.vision.description' | translate }}</p>
+          </div>
+          <div class="vm-decoration"></div>
+        </div>
+        <div class="vm-card-large mission-card">
+          <div class="vm-card-content">
+            <div class="vm-badge">Mission</div>
+            <h2>{{ 'home.visionMission.mission.title' | translate }}</h2>
+            <p>{{ 'home.visionMission.mission.description' | translate }}</p>
+          </div>
+          <div class="vm-decoration"></div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <div class="about-section">
+  <!-- Core Values -->
+  <div class="values-showcase">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-label">What Drives Us</span>
         <h2>{{ 'home.coreValues.title' | translate }}</h2>
-        <ul>
-          <li>{{ 'home.coreValues.quality.title' | translate }}: {{ 'home.coreValues.quality.description' | translate }}</li>
-          <li>{{ 'home.coreValues.reliability.title' | translate }}: {{ 'home.coreValues.reliability.description' | translate }}</li>
-          <li>{{ 'home.coreValues.flexibility.title' | translate }}: {{ 'home.coreValues.flexibility.description' | translate }}</li>
-          <li>{{ 'home.coreValues.professionalism.title' | translate }}: {{ 'home.coreValues.professionalism.description' | translate }}</li>
-          <li>{{ 'home.coreValues.partnerships.title' | translate }}: {{ 'home.coreValues.partnerships.description' | translate }}</li>
-        </ul>
+        <p>The principles that guide everything we do</p>
+      </div>
+      <div class="values-masonry">
+        <div class="value-tile">
+          <div class="value-number">01</div>
+          <h3>{{ 'home.coreValues.quality.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.quality.description' | translate }}</p>
+        </div>
+        <div class="value-tile">
+          <div class="value-number">02</div>
+          <h3>{{ 'home.coreValues.reliability.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.reliability.description' | translate }}</p>
+        </div>
+        <div class="value-tile">
+          <div class="value-number">03</div>
+          <h3>{{ 'home.coreValues.flexibility.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.flexibility.description' | translate }}</p>
+        </div>
+        <div class="value-tile">
+          <div class="value-number">04</div>
+          <h3>{{ 'home.coreValues.professionalism.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.professionalism.description' | translate }}</p>
+        </div>
+        <div class="value-tile">
+          <div class="value-number">05</div>
+          <h3>{{ 'home.coreValues.partnerships.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.partnerships.description' | translate }}</p>
+        </div>
       </div>
     </div>
   </div>

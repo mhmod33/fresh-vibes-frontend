@@ -1,4 +1,5 @@
-<section class="hero">
+<section class="hero" style="background-image: url('assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg');">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>{{ 'home.hero.title' | translate }}</h1>
     <p>{{ 'home.hero.subtitle' | translate }}</p>
@@ -8,40 +9,80 @@
 
 <section class="who-we-are">
   <div class="container">
-    <div class="section-header">
-      <h2>{{ 'home.whoWeAre.title' | translate }}</h2>
-    </div>
     <div class="who-we-are-content">
-      <div class="who-we-are-text">
-        <p>{{ 'home.whoWeAre.description' | translate }}</p>
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-number">3</div>
-            <div class="stat-label">{{ 'home.whoWeAre.stats.categories' | translate }}</div>
+      <div class="who-we-are-main">
+        <div class="section-badge">{{ 'home.whoWeAre.badge' | translate }}</div>
+        <h2>{{ 'home.whoWeAre.title' | translate }}</h2>
+        <p class="lead-text">{{ 'home.whoWeAre.description' | translate }}</p>
+
+        <div class="stats-showcase">
+          <div class="stat-box">
+            <div class="stat-visual">
+              <div class="stat-circle">
+                <span class="stat-number">3</span>
+              </div>
+            </div>
+            <div class="stat-info">
+              <h4>{{ 'home.whoWeAre.stats.categories' | translate }}</h4>
+              <p>Product Categories</p>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">25</div>
-            <div class="stat-label">{{ 'home.whoWeAre.stats.products' | translate }}</div>
+          <div class="stat-box">
+            <div class="stat-visual">
+              <div class="stat-circle">
+                <span class="stat-number">25+</span>
+              </div>
+            </div>
+            <div class="stat-info">
+              <h4>{{ 'home.whoWeAre.stats.products' | translate }}</h4>
+              <p>Premium Products</p>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">5</div>
-            <div class="stat-label">{{ 'home.whoWeAre.stats.segments' | translate }}</div>
+          <div class="stat-box">
+            <div class="stat-visual">
+              <div class="stat-circle">
+                <span class="stat-number">5</span>
+              </div>
+            </div>
+            <div class="stat-info">
+              <h4>{{ 'home.whoWeAre.stats.segments' | translate }}</h4>
+              <p>Customer Segments</p>
+            </div>
           </div>
-          <div class="stat-item">
-            <div class="stat-number">9</div>
-            <div class="stat-label">{{ 'home.whoWeAre.stats.capabilities' | translate }}</div>
+          <div class="stat-box">
+            <div class="stat-visual">
+              <div class="stat-circle">
+                <span class="stat-number">9</span>
+              </div>
+            </div>
+            <div class="stat-info">
+              <h4>{{ 'home.whoWeAre.stats.capabilities' | translate }}</h4>
+              <p>Supply Capabilities</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="who-we-are-images">
-        <div class="image-placeholder">
-          <div class="image-label">Harvest</div>
-        </div>
-        <div class="image-placeholder">
-          <div class="image-label">Herbs</div>
-        </div>
-        <div class="image-placeholder">
-          <div class="image-label">Sorting</div>
+
+      <div class="who-we-are-gallery">
+        <div class="gallery-grid">
+          <div class="gallery-item large">
+            <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Fresh Produce">
+            <div class="gallery-overlay">
+              <span>Premium Quality</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Fresh Vibes">
+            <div class="gallery-overlay">
+              <span>Our Brand</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Aromatic Herbs">
+            <div class="gallery-overlay">
+              <span>Aromatic Herbs</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -49,10 +90,25 @@
 </section>
 
 <section class="vision-mission">
+  <div class="vm-bg-pattern"></div>
   <div class="container">
-    <div class="vision-mission-content">
-      <div class="vision-mission-cards">
-        <div class="vm-card">
+    <div class="section-header">
+      <div class="vm-badge">
+        <span class="badge-icon">◈</span>
+        <span>Our Purpose</span>
+      </div>
+      <h2>Vision & Mission</h2>
+      <p>Driving excellence in agricultural production</p>
+    </div>
+
+    <div class="vision-mission-grid">
+      <div class="vm-card vision-card">
+        <div class="vm-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Our Vision">
+          <div class="image-overlay"></div>
+          <div class="vm-number">01</div>
+        </div>
+        <div class="vm-content">
           <div class="vm-icon-wrapper">
             <svg class="vm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M1 12s4-8 11-8 11 8 11 8-11 8-11-8z"/>
@@ -62,7 +118,15 @@
           <h3>{{ 'home.visionMission.vision.title' | translate }}</h3>
           <p>{{ 'home.visionMission.vision.description' | translate }}</p>
         </div>
-        <div class="vm-card">
+      </div>
+
+      <div class="vm-card mission-card">
+        <div class="vm-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Our Mission">
+          <div class="image-overlay"></div>
+          <div class="vm-number">02</div>
+        </div>
+        <div class="vm-content">
           <div class="vm-icon-wrapper">
             <svg class="vm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
@@ -74,9 +138,12 @@
           <p>{{ 'home.visionMission.mission.description' | translate }}</p>
         </div>
       </div>
-      <div class="vm-tagline">
-        <div class="tagline-box">
+
+      <div class="vm-card tagline-card">
+        <div class="tagline-content">
+          <div class="tagline-icon">✦</div>
           <p>{{ 'home.visionMission.tagline' | translate }}</p>
+          <div class="tagline-icon">✦</div>
         </div>
       </div>
     </div>
@@ -91,6 +158,7 @@
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Fresh Produce">
           <div class="image-label">Fresh produce</div>
         </div>
         <div class="card-content">
@@ -107,6 +175,7 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Aromatic Plants">
           <div class="image-label">Aromatic plants</div>
         </div>
         <div class="card-content">
@@ -125,6 +194,7 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Dry Crops">
           <div class="image-label">Dry crops</div>
         </div>
         <div class="card-content">
@@ -150,282 +220,409 @@
     </div>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-number">01</div>
-        <div class="value-icon-wrapper">
-          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="8" r="7"/>
-            <polyline points="8.21 13.89 7 23 12 23 17 13.89"/>
-            <line x1="12" y1="2" x2="12" y2="4"/>
-          </svg>
+        <div class="value-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Quality">
         </div>
-        <h3>{{ 'home.coreValues.quality.title' | translate }}</h3>
-        <p>{{ 'home.coreValues.quality.description' | translate }}</p>
+        <div class="value-content">
+          <div class="value-number">01</div>
+          <div class="value-icon-wrapper">
+            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 23 17 13.89"/>
+              <line x1="12" y1="2" x2="12" y2="4"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.coreValues.quality.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.quality.description' | translate }}</p>
+        </div>
       </div>
       <div class="value-card">
-        <div class="value-number">02</div>
-        <div class="value-icon-wrapper">
-          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M12 8v4"/>
-            <path d="M12 16h.01"/>
-          </svg>
+        <div class="value-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Reliability">
         </div>
-        <h3>{{ 'home.coreValues.reliability.title' | translate }}</h3>
-        <p>{{ 'home.coreValues.reliability.description' | translate }}</p>
+        <div class="value-content">
+          <div class="value-number">02</div>
+          <div class="value-icon-wrapper">
+            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+              <path d="M12 16h.01"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.coreValues.reliability.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.reliability.description' | translate }}</p>
+        </div>
       </div>
       <div class="value-card">
-        <div class="value-number">03</div>
-        <div class="value-icon-wrapper">
-          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="23 4 23 10 17 10"/>
-            <polyline points="1 20 1 14 7 14"/>
-            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-          </svg>
+        <div class="value-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Flexibility">
         </div>
-        <h3>{{ 'home.coreValues.flexibility.title' | translate }}</h3>
-        <p>{{ 'home.coreValues.flexibility.description' | translate }}</p>
+        <div class="value-content">
+          <div class="value-number">03</div>
+          <div class="value-icon-wrapper">
+            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.coreValues.flexibility.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.flexibility.description' | translate }}</p>
+        </div>
       </div>
       <div class="value-card">
-        <div class="value-number">04</div>
-        <div class="value-icon-wrapper">
-          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-          </svg>
+        <div class="value-image">
+          <img src="/assets/vecteezy_a-sunlit-greenhouse-covered-with-thriving-plants-deserted_70524748.jpeg" alt="Professionalism">
         </div>
-        <h3>{{ 'home.coreValues.professionalism.title' | translate }}</h3>
-        <p>{{ 'home.coreValues.professionalism.description' | translate }}</p>
+        <div class="value-content">
+          <div class="value-number">04</div>
+          <div class="value-icon-wrapper">
+            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.coreValues.professionalism.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.professionalism.description' | translate }}</p>
+        </div>
       </div>
       <div class="value-card">
-        <div class="value-number">05</div>
-        <div class="value-icon-wrapper">
-          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
+        <div class="value-image">
+          <img src="/assets/greenhouse.jpeg" alt="Partnerships">
         </div>
-        <h3>{{ 'home.coreValues.partnerships.title' | translate }}</h3>
-        <p>{{ 'home.coreValues.partnerships.description' | translate }}</p>
+        <div class="value-content">
+          <div class="value-number">05</div>
+          <div class="value-icon-wrapper">
+            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.coreValues.partnerships.title' | translate }}</h3>
+          <p>{{ 'home.coreValues.partnerships.description' | translate }}</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="customers">
+  <div class="customers-bg"></div>
   <div class="container">
     <div class="section-header">
+      <div class="customers-badge">
+        <span class="badge-star">★</span>
+        <span>Our Clients</span>
+      </div>
       <h2>{{ 'home.customers.title' | translate }}</h2>
+      <p>Trusted by businesses across multiple industries</p>
     </div>
-    <div class="customers-wheel">
-      <div class="wheel-center">
-        <span>Fresh Vibes</span>
-      </div>
-      <div class="customer-item">
-        <div class="customer-icon-wrapper">
-          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="17 8 12 3 7 8"/>
-            <line x1="12" y1="3" x2="12" y2="15"/>
-          </svg>
+
+    <div class="customers-grid">
+      <div class="customer-card">
+        <div class="customer-image">
+          <img src="/assets/customers/exporter.jpg" alt="Exporters">
+          <div class="image-overlay"></div>
+          <div class="customer-badge">
+            <span>01</span>
+          </div>
         </div>
-        <h4>{{ 'home.customers.exporters.title' | translate }}</h4>
-        <p>{{ 'home.customers.exporters.description' | translate }}</p>
-      </div>
-      <div class="customer-item">
-        <div class="customer-icon-wrapper">
-          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 3h18v18H3zM9 3v18M15 3v18"/>
-          </svg>
+        <div class="customer-content">
+          <h3>{{ 'home.customers.exporters.title' | translate }}</h3>
+          <p>{{ 'home.customers.exporters.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.customers.supermarkets.title' | translate }}</h4>
-        <p>{{ 'home.customers.supermarkets.description' | translate }}</p>
       </div>
-      <div class="customer-item">
-        <div class="customer-icon-wrapper">
-          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V3l-7 5v12z"/>
-          </svg>
+
+      <div class="customer-card">
+        <div class="customer-image">
+          <img src="/assets/customers/supermarket.jpg" alt="Supermarkets">
+          <div class="image-overlay"></div>
+          <div class="customer-badge">
+            <span>02</span>
+          </div>
         </div>
-        <h4>{{ 'home.customers.factories.title' | translate }}</h4>
-        <p>{{ 'home.customers.factories.description' | translate }}</p>
+        <div class="customer-content">
+          <h3>{{ 'home.customers.supermarkets.title' | translate }}</h3>
+          <p>{{ 'home.customers.supermarkets.description' | translate }}</p>
+        </div>
       </div>
-      <div class="customer-item">
-        <div class="customer-icon-wrapper">
-          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
+
+      <div class="customer-card">
+        <div class="customer-image">
+          <img src="/assets/customers/factory.jpg" alt="Factories">
+          <div class="image-overlay"></div>
+          <div class="customer-badge">
+            <span>03</span>
+          </div>
         </div>
-        <h4>{{ 'home.customers.wholesalers.title' | translate }}</h4>
-        <p>{{ 'home.customers.wholesalers.description' | translate }}</p>
+        <div class="customer-content">
+          <h3>{{ 'home.customers.factories.title' | translate }}</h3>
+          <p>{{ 'home.customers.factories.description' | translate }}</p>
+        </div>
       </div>
-      <div class="customer-item">
-        <div class="customer-icon-wrapper">
-          <svg class="customer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-            <line x1="6" y1="1" x2="6" y2="4"/>
-            <line x1="10" y1="1" x2="10" y2="4"/>
-            <line x1="14" y1="1" x2="14" y2="4"/>
-          </svg>
+
+      <div class="customer-card">
+        <div class="customer-image">
+          <img src="/assets/customers/wholesaler.jpg" alt="Wholesalers">
+          <div class="image-overlay"></div>
+          <div class="customer-badge">
+            <span>04</span>
+          </div>
         </div>
-        <h4>{{ 'home.customers.restaurants.title' | translate }}</h4>
-        <p>{{ 'home.customers.restaurants.description' | translate }}</p>
+        <div class="customer-content">
+          <h3>{{ 'home.customers.wholesalers.title' | translate }}</h3>
+          <p>{{ 'home.customers.wholesalers.description' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div class="customer-image">
+          <img src="/assets/customers/restaurant.jpg" alt="Restaurants">
+          <div class="image-overlay"></div>
+          <div class="customer-badge">
+            <span>05</span>
+          </div>
+        </div>
+        <div class="customer-content">
+          <h3>{{ 'home.customers.restaurants.title' | translate }}</h3>
+          <p>{{ 'home.customers.restaurants.description' | translate }}</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="supply-capabilities">
+  <div class="supply-bg"></div>
   <div class="container">
     <div class="section-header">
+      <div class="capabilities-badge">
+        <span class="badge-diamond">◆</span>
+        <span>Supply Chain</span>
+      </div>
       <h2>{{ 'home.supplyCapabilities.title' | translate }}</h2>
+      <p>From farm to delivery, excellence at every stage</p>
     </div>
-    <div class="supply-flow">
-      @for (step of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track step) {
-        <div class="supply-step">
-          <div class="step-number">{{ step }}</div>
-          <div class="step-icon-wrapper">
-            @switch (step) {
-              @case (1) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-              }
-              @case (2) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8"/>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-              }
-              @case (3) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="22 3 2 3 10 12.46 22 3"/>
-                  <path d="M5.5 13.5 8 16 13 11"/>
-                </svg>
-              }
-              @case (4) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              }
-              @case (5) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="6" cy="6" r="3"/>
-                  <circle cx="6" cy="18" r="3"/>
-                  <line x1="20" y1="4" x2="8.12" y2="15.88"/>
-                  <line x1="14.47" y1="14.48" x2="20" y2="20"/>
-                  <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-                </svg>
-              }
-              @case (6) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                  <line x1="12" y1="22.08" x2="12" y2="12"/>
-                </svg>
-              }
-              @case (7) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="9 11 12 14 22 4"/>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                </svg>
-              }
-              @case (8) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="1" y="3" width="15" height="13"/>
-                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 11"/>
-                  <circle cx="5.5" cy="18.5" r="2.5"/>
-                </svg>
-              }
-              @case (9) {
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              }
-            }
-          </div>
-          <p>{{ 'home.supplyCapabilities.steps.' + step | translate }}</p>
+
+    <div class="capabilities-grid">
+      <div class="capability-card card-1">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Product Sourcing">
+          <div class="image-overlay"></div>
+          <div class="step-number">01</div>
         </div>
-      }
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.1' | translate }}</h3>
+          <p>Sourcing premium produce from trusted farms</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-2">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Quality Selection">
+          <div class="image-overlay"></div>
+          <div class="step-number">02</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.2' | translate }}</h3>
+          <p>Rigorous quality control and selection</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-3">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Sorting">
+          <div class="image-overlay"></div>
+          <div class="step-number">03</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.3' | translate }}</h3>
+          <p>Precise sorting by size and quality</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-4">
+        <div class="card-image">
+          <img src="/assets/vecteezy_a-sunlit-greenhouse-covered-with-thriving-plants-deserted_70524748.jpeg" alt="Grading">
+          <div class="image-overlay"></div>
+          <div class="step-number">04</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.4' | translate }}</h3>
+          <p>Professional grading to specifications</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-5">
+        <div class="card-image">
+          <img src="/assets/greenhouse.jpeg" alt="Preparation">
+          <div class="image-overlay"></div>
+          <div class="step-number">05</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.5' | translate }}</h3>
+          <p>Expert preparation and processing</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-6">
+        <div class="card-image">
+          <img src="/assets/WhatsApp Image 2026-10-05 at 3.09.20 PM.jpeg" alt="Packaging">
+          <div class="image-overlay"></div>
+          <div class="step-number">06</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.6' | translate }}</h3>
+          <p>Custom packaging to customer needs</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-7">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Order Fulfillment">
+          <div class="image-overlay"></div>
+          <div class="step-number">07</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.7' | translate }}</h3>
+          <p>Efficient order processing and fulfillment</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-8">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Transportation">
+          <div class="image-overlay"></div>
+          <div class="step-number">08</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.8' | translate }}</h3>
+          <p>Coordinated transportation logistics</p>
+        </div>
+      </div>
+
+      <div class="capability-card card-9">
+        <div class="card-image">
+          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Delivery">
+          <div class="image-overlay"></div>
+          <div class="step-number">09</div>
+        </div>
+        <div class="card-content">
+          <h3>{{ 'home.supplyCapabilities.steps.9' | translate }}</h3>
+          <p>On-time delivery to your specifications</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="process">
+  <div class="process-bg-pattern"></div>
   <div class="container">
     <div class="section-header">
+      <div class="process-badge">
+        <span class="badge-icon">✦</span>
+        <span>Our Process</span>
+      </div>
       <h2>{{ 'home.process.title' | translate }}</h2>
+      <p>Excellence crafted around your precise requirements</p>
     </div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 11l3 3L22 4"/>
-            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-          </svg>
+
+    <div class="process-grid">
+      <div class="process-step step-1">
+        <div class="step-connector"></div>
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.requirement.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.requirement.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.requirement.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.requirement.description' | translate }}</p>
       </div>
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
+
+      <div class="process-step step-2">
+        <div class="step-connector"></div>
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.selection.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.selection.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.selection.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.selection.description' | translate }}</p>
       </div>
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
+
+      <div class="process-step step-3">
+        <div class="step-connector"></div>
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.grading.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.grading.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.grading.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.grading.description' | translate }}</p>
       </div>
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="6" cy="6" r="3"/>
-            <circle cx="6" cy="18" r="3"/>
-            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
-            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
-            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-          </svg>
+
+      <div class="process-step step-4">
+        <div class="step-connector"></div>
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.preparation.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.preparation.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.preparation.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.preparation.description' | translate }}</p>
       </div>
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
+
+      <div class="process-step step-5">
+        <div class="step-connector"></div>
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.packaging.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.packaging.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.packaging.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.packaging.description' | translate }}</p>
       </div>
-      <div class="process-step">
-        <div class="process-icon-wrapper">
-          <svg class="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="1" y="3" width="15" height="13"/>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 11"/>
-            <circle cx="5.5" cy="18.5" r="2.5"/>
-          </svg>
+
+      <div class="process-step step-6">
+        <div class="step-number">06</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <h3>{{ 'home.process.steps.delivery.title' | translate }}</h3>
+          <p>{{ 'home.process.steps.delivery.description' | translate }}</p>
         </div>
-        <h4>{{ 'home.process.steps.delivery.title' | translate }}</h4>
-        <p>{{ 'home.process.steps.delivery.description' | translate }}</p>
       </div>
     </div>
+
     <div class="process-tagline">
-      <p>{{ 'home.process.tagline' | translate }}</p>
+      <div class="tagline-content">
+        <div class="tagline-decor"></div>
+        <p>{{ 'home.process.tagline' | translate }}</p>
+        <div class="tagline-decor"></div>
+      </div>
     </div>
   </div>
 </section>
