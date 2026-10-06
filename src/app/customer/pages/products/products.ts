@@ -136,4 +136,9 @@ export class ProductsComponent implements OnInit {
       default: return '#1a4d2e';
     }
   }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = '/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg';
+  }
 }

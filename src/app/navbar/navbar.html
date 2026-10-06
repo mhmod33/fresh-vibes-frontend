@@ -17,7 +17,7 @@
       <button class="lang-toggle" (click)="switchLanguage(currentLang === 'en' ? 'ar' : 'en')">
         {{ currentLang === 'en' ? 'العربية' : 'English' }}
       </button>
-      <a routerLink="/login" class="btn-login">{{ 'nav.login' | translate }}</a>
+      <a *ngIf="isAdmin()" routerLink="/dashboard" class="btn-login">{{ 'nav.dashboard' | translate }}</a>
     </div>
   </div>
 </nav>

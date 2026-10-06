@@ -18,3 +18,5 @@ export const adminRoutes: Routes = [
     loadComponent: () => import('./pages/product-form/product-form').then(m => m.ProductFormComponent)
   }
 ];
+
+export default adminRoutes;

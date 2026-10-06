@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { TranslationService } from '../shared/translation.service';
 import { TranslatePipe } from '../shared/translate.pipe';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, TranslatePipe],
+  imports: [RouterModule, TranslatePipe, CommonModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
@@ -16,7 +18,8 @@ export class NavbarComponent {
 
   constructor(
     private router: Router,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    public authService: AuthService
   ) {
     this.currentLang = this.translationService.currentLang();
   }
@@ -28,5 +31,9 @@ export class NavbarComponent {
 
   navigateTo(path: string) {
     this.router.navigate([path]);
+  }
+
+  isAdmin(): boolean {
+    return this.authService.isAuthenticated();
   }
 }

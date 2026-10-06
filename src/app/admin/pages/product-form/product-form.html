@@ -48,6 +48,10 @@
     </header>
 
     <div class="form-content">
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+
       <form (ngSubmit)="onSubmit()" class="product-form">
         <div class="form-row">
           <div class="form-group">
@@ -79,27 +83,29 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="icon">Icon Type *</label>
-            <select
-              id="icon"
-              name="icon"
-              [(ngModel)]="productForm.icon"
-              required
-            >
-              @for (icon of icons; track icon) {
-                <option [value]="icon">{{ icon }}</option>
-              }
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="price">Price</label>
+            <label for="price">Price *</label>
             <input
-              type="text"
+              type="number"
               id="price"
               name="price"
               [(ngModel)]="productForm.price"
-              placeholder="Enter price or 'Contact for pricing'"
+              required
+              min="0"
+              step="0.01"
+              placeholder="Enter price"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Stock *</label>
+            <input
+              type="number"
+              id="stock"
+              name="stock"
+              [(ngModel)]="productForm.stock"
+              required
+              min="0"
+              placeholder="Enter stock quantity"
             />
           </div>
         </div>
@@ -116,12 +122,59 @@
           ></textarea>
         </div>
 
+        <div class="form-group">
+          <label for="image">Product Image</label>
+          <div class="image-upload-section">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              class="file-input"
+            />
+            <label for="image" class="file-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>{{ selectedFile ? selectedFile.name : 'Choose image or drag here' }}</span>
+              <span class="file-hint">Max 2MB • JPEG, PNG, GIF, WebP</span>
+            </label>
+
+            @if (imagePreview) {
+              <div class="image-preview-container">
+                <img [src]="imagePreview" alt="Preview" class="image-preview" />
+                <button type="button" (click)="removeImage()" class="btn-remove-image">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  Remove
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              name="is_active"
+              [(ngModel)]="productForm.is_active"
+            />
+            <span>Product is active</span>
+          </label>
+        </div>
+
         <div class="form-actions">
-          <button type="button" (click)="onCancel()" class="btn-cancel">
+          <button type="button" (click)="onCancel()" class="btn-cancel" [disabled]="isLoading">
             {{ 'admin.cancel' | translate }}
           </button>
-          <button type="submit" class="btn-submit">
-            {{ 'admin.save' | translate }}
+          <button type="submit" class="btn-submit" [disabled]="isLoading">
+            {{ isLoading ? 'Saving...' : ('admin.save' | translate) }}
           </button>
         </div>
       </form>

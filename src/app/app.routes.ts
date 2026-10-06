@@ -7,6 +7,7 @@ import { ContactComponent } from './customer/pages/contact/contact';
 import { HomeComponent } from './customer/pages/home/home';
 import { AboutComponent } from './customer/pages/about/about';
 import { ProductDetailComponent } from './customer/pages/product-detail/product-detail';
+import { adminRoutes } from './admin/admin.routes';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'admin', children: adminRoutes },
   { path: '**', redirectTo: '' }
 ];

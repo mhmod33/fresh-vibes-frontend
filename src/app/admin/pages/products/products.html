@@ -59,16 +59,25 @@
         <table class="products-table">
           <thead>
             <tr>
+              <th>Image</th>
               <th>Product</th>
               <th>Category</th>
-              <th>Description</th>
               <th>Price</th>
+              <th>Stock</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             @for (product of products; track product.id) {
               <tr>
+                <td>
+                  <img
+                    [src]="product.image_url || '/assets/placeholder.png'"
+                    [alt]="product.name"
+                    class="product-thumbnail"
+                    (error)="onImageError($event)"
+                  />
+                </td>
                 <td>
                   <div class="product-cell">
                     <span class="product-name">{{ product.name }}</span>
@@ -77,8 +86,12 @@
                 <td>
                   <span class="category-badge">{{ product.category }}</span>
                 </td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
+                <td>${{ product.price.toFixed(2) }}</td>
+                <td>
+                  <span class="stock-badge" [class.low-stock]="product.stock < 50">
+                    {{ product.stock }}
+                  </span>
+                </td>
                 <td>
                   <div class="action-buttons">
                     <button (click)="editProduct(product.id)" class="btn-edit" title="Edit">
