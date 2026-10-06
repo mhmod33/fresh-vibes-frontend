@@ -107,11 +107,16 @@
 }
 
 .nav-icon {
-  font-size: 1.25rem;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .admin-main {
@@ -178,7 +183,9 @@
 }
 
 .btn-icon {
-  font-size: 1.125rem;
+  width: 20px;
+  height: 20px;
+  margin-right: var(--space-sm);
 }
 
 .btn-logout {
@@ -294,17 +301,22 @@
 
 .btn-edit,
 .btn-delete {
-  padding: 0.625rem;
+  padding: 0.5rem;
   border: none;
   border-radius: var(--radius-lg);
   cursor: pointer;
-  font-size: 1.125rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-edit svg,
+.btn-delete svg {
+  width: 20px;
+  height: 20px;
 }
 
 .btn-edit {

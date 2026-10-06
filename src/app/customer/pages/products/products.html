@@ -5,6 +5,27 @@
       <p class="page-subtitle">Discover our premium selection of fresh produce and agricultural products</p>
     </div>
 
+    <!-- Search Bar -->
+    <div class="search-section">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          class="search-input"
+          [(ngModel)]="searchQuery"
+          (keyup.enter)="onSearch()"
+          placeholder="Search products..."
+        />
+        <button class="search-btn" (click)="onSearch()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+
+    <!-- Categories Filter -->
     <div class="categories-filter">
       @for (cat of categories; track cat.id) {
         <button
@@ -17,34 +38,125 @@
       }
     </div>
 
-    <div class="products-gallery">
-      @for (product of filteredProducts; track product.id) {
-        <div class="product-item">
-          <div class="product-visual">
-            <div class="product-image-wrapper">
-              <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="{{ product.name }}" class="product-image">
-              <div class="product-overlay">
-                <div class="overlay-content">
-                  <h3>{{ product.name }}</h3>
-                  <p class="product-category">{{ product.category }}</p>
-                  <div class="overlay-actions">
-                    <a [routerLink]="['/products', product.id]" class="btn-view-details">
-                      {{ 'products.viewDetails' | translate }}
-                    </a>
-                    <button class="btn-buy-now">
-                      {{ 'products.buyNow' | translate }}
-                      <span class="badge-soon">{{ 'products.comingSoon' | translate }}</span>
-                    </button>
+    <!-- Results Info -->
+    <div class="results-info">
+      <p>Showing {{ products.length }} of {{ totalProducts }} products</p>
+    </div>
+
+    <!-- Loading State -->
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+    }
+
+    <!-- Products Grid -->
+    @if (!loading && products.length > 0) {
+      <div class="products-gallery">
+        @for (product of products; track product.id) {
+          <div class="product-item">
+            <div class="product-visual">
+              <div class="product-image-wrapper">
+                <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="{{ product.name }}" class="product-image">
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <h3>{{ product.name }}</h3>
+                    <p class="product-description">{{ product.description }}</p>
+                    <div class="product-details">
+                      <span class="product-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span>
+                      <span class="product-stock" [class.low-stock]="product.stock < 50">
+                        Stock: {{ product.stock }}
+                      </span>
+                    </div>
+                    <span class="product-category-badge" [style.background-color]="getCategoryColor(product.category)">
+                      {{ product.category }}
+                    </span>
+                    <div class="overlay-actions">
+                      <a [routerLink]="['/products', product.id]" class="btn-view-details">
+                        View Details
+                      </a>
+                      <button class="btn-buy-now">
+                        Buy Now
+                        <span class="badge-soon">Coming Soon</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="product-label">
-              <span class="label-text">{{ product.name }}</span>
+              <div class="product-label">
+                <span class="label-text">{{ product.name }}</span>
+                <span class="label-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span>
+              </div>
             </div>
           </div>
+        }
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!loading && products.length === 0) {
+      <div class="empty-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <h3>No products found</h3>
+        <p>Try adjusting your search or filter to find what you're looking for.</p>
+      </div>
+    }
+
+    <!-- Pagination -->
+    @if (!loading && lastPage > 1) {
+      <div class="pagination">
+        <button
+          class="page-btn"
+          [disabled]="currentPage === 1"
+          (click)="goToPage(currentPage - 1)"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Previous
+        </button>
+
+        <div class="page-numbers">
+          @if (pageNumbers[0] > 1) {
+            <button class="page-number" (click)="goToPage(1)">1</button>
+            @if (pageNumbers[0] > 2) {
+              <span class="ellipsis">...</span>
+            }
+          }
+
+          @for (page of pageNumbers; track page) {
+            <button
+              class="page-number"
+              [class.active]="page === currentPage"
+              (click)="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          }
+
+          @if (pageNumbers[pageNumbers.length - 1] < lastPage) {
+            @if (pageNumbers[pageNumbers.length - 1] < lastPage - 1) {
+              <span class="ellipsis">...</span>
+            }
+            <button class="page-number" (click)="goToPage(lastPage)">{{ lastPage }}</button>
+          }
         </div>
-      }
-    </div>
+
+        <button
+          class="page-btn"
+          [disabled]="currentPage === lastPage"
+          (click)="goToPage(currentPage + 1)"
+        >
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    }
   </div>
 </section>

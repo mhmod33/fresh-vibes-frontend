@@ -274,12 +274,12 @@ p {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 8px 10px;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-lg);
+    padding: 5px var(--space-lg);
   }
 }
 

@@ -107,11 +107,16 @@
 }
 
 .nav-icon {
-  font-size: 1.25rem;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .admin-main {
@@ -422,9 +427,15 @@
 }
 
 .action-icon {
-  font-size: 1.5rem;
+  width: 24px;
+  height: 24px;
   position: relative;
   z-index: 1;
+}
+
+.action-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 1200px) {

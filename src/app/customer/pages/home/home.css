@@ -16,7 +16,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 16px var(--space-xl);
 }
 
 .section-header {
@@ -379,8 +379,20 @@
 }
 
 .badge-star {
-  font-size: 1rem;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.badge-star::before {
+  content: '★';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--primary);
+  font-size: 1.25rem;
 }
 
 .customers .section-header h2 {
@@ -598,8 +610,20 @@
 }
 
 .badge-diamond {
-  font-size: 1rem;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.badge-diamond::before {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--accent);
+  font-size: 1rem;
 }
 
 .supply-capabilities .section-header h2 {
@@ -831,8 +855,20 @@
 }
 
 .badge-icon {
-  font-size: 1.25rem;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.badge-icon::before {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #d4af37;
+  font-size: 1.25rem;
 }
 
 .process .section-header h2 {
@@ -1224,8 +1260,20 @@
 }
 
 .badge-icon {
-  font-size: 1.25rem;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.badge-icon::before {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #d4af37;
+  font-size: 1.25rem;
 }
 
 .vision-mission .section-header h2 {
@@ -1418,9 +1466,21 @@
   text-align: center;
 }
 
-.tagline-icon {
-  font-size: 2rem;
+.tagline-decoration {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tagline-decoration::before {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #d4af37;
+  font-size: 1.5rem;
   animation: pulse 2s ease-in-out infinite;
 }
 

@@ -25,6 +25,22 @@
             <p>Fill out the form below and our team will get back to you within 24 hours</p>
           </div>
           <form (ngSubmit)="onSubmit()" class="modern-form">
+            <!-- Success Message -->
+            <div *ngIf="successMessage" class="alert alert-success">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px; margin-right: 8px;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              {{ successMessage }}
+            </div>
+
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-error">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px; margin-right: 8px;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              {{ errorMessage }}
+            </div>
+
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Full Name</label>
@@ -75,11 +91,15 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-submit-modern">
-              <span>Send Message</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button type="submit" class="btn-submit-modern" [disabled]="loading">
+              <span *ngIf="!loading">Send Message</span>
+              <span *ngIf="loading">Sending...</span>
+              <svg *ngIf="!loading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <svg *ngIf="loading" class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
               </svg>
             </button>
           </form>

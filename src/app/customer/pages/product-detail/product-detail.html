@@ -1,46 +1,151 @@
-<section class="product-detail-page" *ngIf="product">
+<section class="product-detail-page">
   <div class="container">
-    <div class="breadcrumb">
-      <a routerLink="/">{{ 'nav.home' | translate }}</a>
-      <span>/</span>
-      <a routerLink="/products">{{ 'nav.products' | translate }}</a>
-      <span>/</span>
-      <span>{{ product.name }}</span>
-    </div>
+    <!-- Back Button -->
+    <button class="back-button" (click)="goBack()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Back to Products
+    </button>
 
-    <div class="product-detail-content">
-      <div class="product-image">
-        <div class="image-placeholder">
-          <svg class="product-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
+    <!-- Loading State -->
+    @if (loading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading product details...</p>
+      </div>
+    }
+
+    <!-- Product Detail -->
+    @if (!loading && product) {
+      <div class="product-detail-container">
+        <!-- Product Image -->
+        <div class="product-image-section">
+          <div class="main-image">
+            <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="{{ product.name }}">
+          </div>
+          <div class="image-thumbnails">
+            <div class="thumbnail active">
+              <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Thumbnail 1">
+            </div>
+            <div class="thumbnail">
+              <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Thumbnail 2">
+            </div>
+            <div class="thumbnail">
+              <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Thumbnail 3">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info-section">
+          <div class="product-category-badge" [style.background-color]="getCategoryColor(product.category)">
+            {{ product.category }}
+          </div>
+
+          <h1 class="product-title">{{ product.name }}</h1>
+
+          <div class="product-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <span class="price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span>
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+              <span class="stock" [class.low-stock]="product.stock < 50">
+                {{ product.stock }} in stock
+              </span>
+            </div>
+          </div>
+
+          <div class="product-description">
+            <h3>Description</h3>
+            <p>{{ product.description }}</p>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="quantity-section">
+            <h3>Quantity</h3>
+            <div class="quantity-control">
+              <button class="quantity-btn" (click)="decreaseQuantity()" [disabled]="quantity === 1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+              <span class="quantity-value">{{ quantity }}</span>
+              <button class="quantity-btn" (click)="increaseQuantity()" [disabled]="quantity >= product.stock">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="btn-add-cart" (click)="addToCart()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              Add to Cart
+            </button>
+            <button class="btn-buy-now">
+              Buy Now
+              <span class="badge-soon">Coming Soon</span>
+            </button>
+          </div>
+
+          <!-- Product Features -->
+          <div class="product-features">
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Premium Quality</span>
+            </div>
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <span>Fast Delivery</span>
+            </div>
+            <div class="feature-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                <line x1="16" y1="8" x2="2" y2="22"></line>
+                <line x1="17.5" y1="15" x2="9" y2="15"></line>
+              </svg>
+              <span>Fresh Harvest</span>
+            </div>
+          </div>
         </div>
       </div>
+    }
 
-      <div class="product-details">
-        <h1>{{ product.name }}</h1>
-        <div class="product-category">
-          <span class="category-badge">{{ product.category }}</span>
-        </div>
-
-        <div class="product-description">
-          <h3>Description</h3>
-          <p>{{ product.description }}</p>
-        </div>
-
-        <div class="product-price">
-          <h3>Price</h3>
-          <p>{{ product.price }}</p>
-        </div>
-
-        <div class="product-actions">
-          <button class="btn-buy">
-            {{ 'products.buyNow' | translate }}
-            <span class="coming-soon">{{ 'products.comingSoon' | translate }}</span>
-          </button>
-          <a routerLink="/contact" class="btn-contact">Contact Us</a>
-        </div>
+    <!-- Error State -->
+    @if (!loading && !product) {
+      <div class="error-state">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <h3>Product Not Found</h3>
+        <p>The product you're looking for doesn't exist or has been removed.</p>
+        <button class="btn-back" (click)="goBack()">Back to Products</button>
       </div>
-    </div>
+    }
   </div>
 </section>
