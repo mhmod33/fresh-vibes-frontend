@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://fresh-back.runasp.net'
+  apiUrl: 'https://fresh-back.runasp.net'
 };

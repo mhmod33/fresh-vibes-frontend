@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { environment } from "../../../../environments/environment";
 interface Product {
   id: number;
   name: string;
@@ -30,7 +30,7 @@ export class ProductDetailComponent implements OnInit {
   quantity = 1;
   selectedImage = 0;
 
-  private apiUrl = 'http://localhost:8000/products';
+  private apiUrl = environment.apiUrl + '/products';
 
   constructor(
     private http: HttpClient,

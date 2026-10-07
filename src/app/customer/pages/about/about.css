@@ -55,6 +55,7 @@
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   opacity: 0.95;
   font-weight: 500;
+  color: #fff;
 }
 
 /* Story Section */

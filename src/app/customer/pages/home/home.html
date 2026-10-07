@@ -1,9 +1,64 @@
 <section class="hero" style="background-image: url('assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg');">
   <div class="hero-overlay"></div>
+
+  <!-- Animated particles -->
+  <div class="hero-particles">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    <div class="particle particle-6"></div>
+  </div>
+
+  <!-- Floating elements -->
+  <div class="hero-decorations">
+    <svg class="hero-leaf hero-leaf-1" viewBox="0 0 40 40" fill="none">
+      <path d="M20 5C20 5 12 9 12 20C12 26 16 32 20 32C24 32 28 26 28 20C28 9 20 5 20 5Z" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 5L20 32M20 32C20 32 14 26 14 16M20 32C20 32 26 26 26 16" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+    <svg class="hero-leaf hero-leaf-2" viewBox="0 0 40 40" fill="none">
+      <path d="M20 5C20 5 12 9 12 20C12 26 16 32 20 32C24 32 28 26 28 20C28 9 20 5 20 5Z" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 5L20 32M20 32C20 32 14 26 14 16M20 32C20 32 26 26 26 16" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+    <svg class="hero-leaf hero-leaf-3" viewBox="0 0 40 40" fill="none">
+      <path d="M20 5C20 5 12 9 12 20C12 26 16 32 20 32C24 32 28 26 28 20C28 9 20 5 20 5Z" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 5L20 32M20 32C20 32 14 26 14 16M20 32C20 32 26 26 26 16" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+  </div>
+
   <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" stroke-width="1.5" fill="currentColor" opacity="0.2"/>
+      </svg>
+      <span>Premium Agricultural Products</span>
+    </div>
+
     <h1>{{ 'home.hero.title' | translate }}</h1>
     <p>{{ 'home.hero.subtitle' | translate }}</p>
-    <a routerLink="/products" class="btn-cta">{{ 'home.hero.cta' | translate }}</a>
+
+    <div class="hero-cta-wrapper">
+      <a routerLink="/products" class="btn-cta">
+        <svg class="btn-icon btn-leaf" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="leaf-path" d="M12 2C12 2 4 6 4 14C4 18 7 22 12 22C17 22 20 18 20 14C20 6 12 2 12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="leaf-vein" d="M12 2V22M12 22C12 22 8 18 8 12M12 22C12 22 16 18 16 12" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+        </svg>
+        <span class="btn-text">{{ 'home.hero.cta' | translate }}</span>
+        <svg class="btn-icon btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="arrow-line" d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path class="arrow-head" d="M15 8L19 12L15 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      
+    </div>
+  </div>
+
+  <!-- Animated scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-arrow"></div>
+    <span>Scroll to explore</span>
   </div>
 </section>
 
@@ -66,19 +121,19 @@
       <div class="who-we-are-gallery">
         <div class="gallery-grid">
           <div class="gallery-item large">
-            <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Fresh Produce">
+            <img src="/assets/premium.jpg" alt="Fresh Produce">
             <div class="gallery-overlay">
               <span>Premium Quality</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Fresh Vibes">
+            <img src="/assets/packaging.png" alt="Fresh Vibes">
             <div class="gallery-overlay">
               <span>Our Brand</span>
             </div>
           </div>
           <div class="gallery-item">
-            <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Aromatic Herbs">
+            <img src="/assets/aromatic.jpeg" alt="Aromatic Herbs">
             <div class="gallery-overlay">
               <span>Aromatic Herbs</span>
             </div>
@@ -104,15 +159,22 @@
     <div class="vision-mission-grid">
       <div class="vm-card vision-card">
         <div class="vm-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Our Vision">
+          <img src="/assets/vision.jpg" alt="Our Vision">
           <div class="image-overlay"></div>
           <div class="vm-number">01</div>
         </div>
         <div class="vm-content">
-          <div class="vm-icon-wrapper">
-            <svg class="vm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M1 12s4-8 11-8 11 8 11 8-11 8-11-8z"/>
-              <circle cx="12" cy="12" r="3"/>
+          <div class="vm-icon-wrapper"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" class="vm-icon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <g clip-path="url(#clip0_4418_7081)">
+            <path d="M11.9999 16.3299C9.60992 16.3299 7.66992 14.3899 7.66992 11.9999C7.66992 9.60992 9.60992 7.66992 11.9999 7.66992C14.3899 7.66992 16.3299 9.60992 16.3299 11.9999C16.3299 14.3899 14.3899 16.3299 11.9999 16.3299ZM11.9999 9.16992C10.4399 9.16992 9.16992 10.4399 9.16992 11.9999C9.16992 13.5599 10.4399 14.8299 11.9999 14.8299C13.5599 14.8299 14.8299 13.5599 14.8299 11.9999C14.8299 10.4399 13.5599 9.16992 11.9999 9.16992Z" fill="white" style="fill: var(--fillg);"/>
+            <path d="M12.0001 21.0205C8.24008 21.0205 4.69008 18.8205 2.25008 15.0005C1.19008 13.3505 1.19008 10.6605 2.25008 9.00047C4.70008 5.18047 8.25008 2.98047 12.0001 2.98047C15.7501 2.98047 19.3001 5.18047 21.7401 9.00047C22.8001 10.6505 22.8001 13.3405 21.7401 15.0005C19.3001 18.8205 15.7501 21.0205 12.0001 21.0205ZM12.0001 4.48047C8.77008 4.48047 5.68008 6.42047 3.52008 9.81047C2.77008 10.9805 2.77008 13.0205 3.52008 14.1905C5.68008 17.5805 8.77008 19.5205 12.0001 19.5205C15.2301 19.5205 18.3201 17.5805 20.4801 14.1905C21.2301 13.0205 21.2301 10.9805 20.4801 9.81047C18.3201 6.42047 15.2301 4.48047 12.0001 4.48047Z" fill="white" style="fill: var(--fillg);"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_4418_7081">
+            <rect width="24" height="24" fill="white"/>
+            </clipPath>
+            </defs>
             </svg>
           </div>
           <h3>{{ 'home.visionMission.vision.title' | translate }}</h3>
@@ -122,7 +184,7 @@
 
       <div class="vm-card mission-card">
         <div class="vm-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Our Mission">
+          <img src="/assets/mision.jpeg" alt="Our Mission">
           <div class="image-overlay"></div>
           <div class="vm-number">02</div>
         </div>
@@ -158,7 +220,7 @@
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Fresh Produce">
+          <img src="/assets/fresh-produce.jpeg" alt="Fresh Produce">
           <div class="image-label">Fresh produce</div>
         </div>
         <div class="card-content">
@@ -175,17 +237,44 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Aromatic Plants">
+          <img src="/assets/aromatic-plants.jpeg" alt="Aromatic Plants">
           <div class="image-label">Aromatic plants</div>
         </div>
         <div class="card-content">
           <div class="card-number">02</div>
           <div class="card-icon-wrapper">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2C7.58 2 4 5.58 4 10c0 4.42 7 13 7 13s7-8.58 7-13c0-4.42-3.58-8-8-8z"/>
-              <path d="M12 2v10"/>
-              <path d="M12 12c-2.21 0-4 1.79-4 4"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+<g clip-path="url(#clip0_655_9477)">
+<path d="M12.75 2V13.18C12.52 13.09 12.26 13.04 12 13.04C11.74 13.04 11.48 13.09 11.25 13.18V2C11.25 1.59 11.59 1.25 12 1.25C12.41 1.25 12.75 1.59 12.75 2Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M12.0003 15.8H11.3403C10.8903 15.8 10.4603 15.89 10.0703 16.05C8.87027 16.55 8.03027 17.74 8.03027 19.11V22C8.03027 22.41 8.36027 22.75 8.78027 22.75H9.44027C10.4803 22.75 11.4003 22.28 12.0003 21.53C12.4703 20.96 12.7503 20.24 12.7503 19.44V16.55C12.7503 16.14 12.4103 15.8 12.0003 15.8ZM9.53027 21.25V19.11C9.53027 18.14 10.2903 17.35 11.2503 17.3V19.44C11.2503 20.41 10.4903 21.2 9.53027 21.25Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.2503 17.3V19.44C11.2503 20.41 10.4903 21.2 9.53027 21.25V19.11C9.53027 18.14 10.2903 17.35 11.2503 17.3Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M13.93 16.05C13.54 15.89 13.11 15.8 12.66 15.8H12C11.59 15.8 11.25 16.14 11.25 16.55V19.44C11.25 20.24 11.53 20.96 12 21.53C12.6 22.28 13.52 22.75 14.56 22.75H15.22C15.64 22.75 15.97 22.41 15.97 22V19.11C15.97 17.74 15.13 16.55 13.93 16.05ZM14.47 21.25C13.51 21.2 12.75 20.41 12.75 19.44V17.3C13.71 17.35 14.47 18.14 14.47 19.11V21.25Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M14.47 19.11V21.25C13.51 21.2 12.75 20.41 12.75 19.44V17.3C13.71 17.35 14.47 18.14 14.47 19.11Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M12.6601 15.8H12.0001C11.6501 15.8 11.3701 15.52 11.3701 15.17C11.3701 14.82 11.6501 14.54 12.0001 14.54C11.5901 14.54 11.2501 14.21 11.2501 13.79V13.18C10.4401 13.49 9.87012 14.27 9.87012 15.17C9.87012 15.48 9.94012 15.78 10.0701 16.05C10.2901 16.56 10.7201 16.96 11.2501 17.16C11.4801 17.25 11.7401 17.3 12.0001 17.3C12.2601 17.3 12.5201 17.25 12.7501 17.16C13.2801 16.96 13.7101 16.56 13.9301 16.05C13.5401 15.89 13.1101 15.8 12.6601 15.8Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M14.13 15.17C14.13 15.48 14.06 15.78 13.93 16.05C13.54 15.89 13.11 15.8 12.66 15.8H12C11.65 15.8 11.37 15.52 11.37 15.17C11.37 14.82 11.65 14.54 12 14.54C11.59 14.54 11.25 14.21 11.25 13.79V13.18C11.48 13.09 11.74 13.04 12 13.04C12.26 13.04 12.52 13.09 12.75 13.18C13.56 13.49 14.13 14.27 14.13 15.17Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M13.45 6.23C13.45 6.84 13.71 7.39 14.12 7.78L11.47 5.13C11.32 4.98 11.25 4.79 11.25 4.6C11.25 4.41 11.32 4.22 11.47 4.07C11.76 3.78 12.24 3.78 12.53 4.07L13.7 5.24C13.54 5.53 13.45 5.87 13.45 6.23Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M16.3301 8.22C16.3201 8.4 16.2501 8.57 16.1101 8.71C15.9601 8.86 15.7701 8.93 15.5801 8.93C15.3901 8.93 15.2001 8.86 15.0501 8.71L14.1201 7.78C14.2601 7.91 14.4201 8.02 14.5901 8.11L15.0501 7.65L15.5201 7.18L15.5801 7.12L16.1101 7.65C16.2701 7.81 16.3401 8.02 16.3301 8.22Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M15.5801 7.12L15.5201 7.18L15.0501 7.65C14.9101 7.79 14.8301 7.98 14.8301 8.18V8.22C14.8401 8.41 14.9201 8.58 15.0501 8.71C15.2001 8.86 15.3901 8.93 15.5801 8.93C15.7701 8.93 15.9601 8.86 16.1101 8.71C16.2501 8.57 16.3201 8.4 16.3301 8.22C16.4101 8.19 16.4901 8.16 16.5701 8.11C17.2501 7.76 17.7101 7.05 17.7101 6.23C16.9401 6.25 16.1701 6.56 15.5801 7.12Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M22.2403 10.28L21.7703 10.75C21.1503 11.38 20.3203 11.72 19.4303 11.72C19.3203 11.72 19.2103 11.71 19.1003 11.7C19.0303 10.95 18.7003 10.24 18.1503 9.69L16.5703 8.11C17.2503 7.76 17.7103 7.05 17.7103 6.23C18.6103 6.18 19.5203 6.5 20.2003 7.18L22.2403 9.22C22.5303 9.51 22.5303 9.99 22.2403 10.28Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M19.1004 11.7C18.3504 11.63 17.6404 11.3 17.0904 10.75C17.4304 11.09 17.6204 11.55 17.6204 12.03C17.6204 12.48 17.4604 12.91 17.1504 13.25L15.6404 11.74C15.3004 11.39 15.1104 10.94 15.1104 10.46C15.1104 9.98 15.2804 9.58 15.5804 9.24L15.0504 8.71C15.2004 8.86 15.3904 8.93 15.5804 8.93C15.7704 8.93 15.9604 8.86 16.1104 8.71C16.2504 8.57 16.3204 8.4 16.3304 8.22C16.4104 8.19 16.4904 8.16 16.5704 8.11L16.1104 7.65C15.8304 7.37 15.3304 7.37 15.0504 7.65L14.5904 8.11L14.5204 8.18C13.9404 8.79 13.6104 9.6 13.6104 10.46C13.6104 11.32 13.9604 12.17 14.5804 12.8L16.6204 14.84C16.7604 14.98 16.9604 15.06 17.1504 15.06C17.3504 15.06 17.5404 14.98 17.6904 14.84L18.1504 14.37C18.7804 13.75 19.1204 12.91 19.1204 12.03C19.1204 11.92 19.1104 11.81 19.1004 11.7Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M17.0908 10.75C17.4308 11.09 17.6208 11.55 17.6208 12.03C17.6208 12.48 17.4608 12.91 17.1508 13.25L15.6408 11.74C15.3008 11.39 15.1108 10.94 15.1108 10.46C15.1108 9.98 15.2808 9.58 15.5808 9.24L15.0508 8.71C15.2008 8.86 15.3908 8.93 15.5808 8.93C15.7708 8.93 15.9608 8.86 16.1108 8.71C16.2508 8.57 16.3208 8.4 16.3308 8.22C16.4108 8.19 16.4908 8.16 16.5708 8.11L18.1508 9.69C18.7008 10.24 19.0308 10.95 19.1008 11.7C18.3508 11.63 17.6408 11.3 17.0908 10.75Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M15.5798 7.12L15.5198 7.18L15.0498 7.65L14.5898 8.11C14.6598 8.15 14.7398 8.19 14.8298 8.22C15.0598 8.31 15.3198 8.36 15.5798 8.36C15.8398 8.36 16.0998 8.31 16.3298 8.22C16.4098 8.19 16.4898 8.16 16.5698 8.11C17.2498 7.76 17.7098 7.05 17.7098 6.23C16.9398 6.25 16.1698 6.56 15.5798 7.12Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M17.7102 6.22C16.9402 6.25 16.1702 6.56 15.5802 7.12L15.5202 7.18L15.0502 7.65L14.5902 8.11C13.9102 7.75 13.4502 7.04 13.4502 6.23C13.4502 5.87 13.5402 5.53 13.7002 5.24C14.0502 4.56 14.7602 4.09 15.5802 4.09C16.7602 4.09 17.7002 5.04 17.7102 6.22Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M12.7499 4.6C12.7499 4.79 12.6799 4.98 12.5299 5.13L11.9999 5.66L11.2499 6.41L9.47988 8.18L8.94988 8.71C8.79988 8.86 8.60988 8.93 8.41988 8.93C8.22988 8.93 8.03988 8.86 7.88988 8.71C7.74988 8.57 7.67988 8.4 7.66988 8.22C7.65988 8.02 7.72988 7.81 7.88988 7.65L8.41988 7.12C8.41988 7.12 8.45988 7.16 8.47988 7.18L9.40988 8.11C10.0899 7.75 10.5499 7.04 10.5499 6.23C10.5499 5.87 10.4599 5.53 10.2999 5.24L11.2499 4.29L11.4699 4.07C11.7599 3.78 12.2399 3.78 12.5299 4.07C12.6799 4.22 12.7499 4.41 12.7499 4.6Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M8.95047 7.65L8.48047 7.18C8.48047 7.18 8.44047 7.14 8.42047 7.12C7.83047 6.56 7.06047 6.25 6.29047 6.22C5.39047 6.18 4.48047 6.5 3.80047 7.18L1.76047 9.22C1.47047 9.51 1.47047 9.99 1.76047 10.28L2.23047 10.75C2.85047 11.38 3.68047 11.72 4.57047 11.72C4.68047 11.72 4.79047 11.71 4.90047 11.7C5.65047 11.63 6.36047 11.3 6.91047 10.75L8.42047 9.24L8.95047 8.71C9.09047 8.57 9.16047 8.4 9.17047 8.22C9.17047 8.02 9.11047 7.81 8.95047 7.65ZM5.85047 9.69C5.18047 10.35 4.04047 10.38 3.35047 9.75L4.86047 8.24C5.55047 7.56 6.65047 7.54 7.36047 8.18L5.85047 9.69Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M7.36059 8.18L5.85059 9.69C5.18059 10.35 4.04059 10.38 3.35059 9.75L4.86059 8.24C5.55059 7.56 6.65059 7.54 7.36059 8.18Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M9.47988 8.18C9.47988 8.18 9.43988 8.14 9.41988 8.12L8.94988 7.65C8.80988 7.51 8.61988 7.43 8.41988 7.43C8.21988 7.43 8.02988 7.51 7.88988 7.65L7.35988 8.18L5.84988 9.69C5.29988 10.24 4.96988 10.95 4.89988 11.7C4.88988 11.81 4.87988 11.92 4.87988 12.03C4.87988 12.92 5.21988 13.75 5.84988 14.37L6.31988 14.84C6.45988 14.98 6.64988 15.06 6.84988 15.06C7.04988 15.06 7.23988 14.98 7.37988 14.84L9.41988 12.8C10.6899 11.53 10.7099 9.47 9.47988 8.18ZM8.35988 11.74L6.84988 13.25C6.53988 12.91 6.37988 12.48 6.37988 12.03C6.37988 11.55 6.56988 11.09 6.90988 10.75L8.41988 9.24C9.05988 9.95 9.03988 11.05 8.35988 11.74Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M8.35988 11.74L6.84988 13.25C6.53988 12.91 6.37988 12.48 6.37988 12.03C6.37988 11.55 6.56988 11.09 6.90988 10.75L8.41988 9.24C9.05988 9.95 9.03988 11.05 8.35988 11.74Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M8.48004 7.17999C8.48004 7.17999 8.44004 7.13999 8.42004 7.11999C7.83004 6.55999 7.06004 6.24999 6.29004 6.21999C6.29004 7.04999 6.75004 7.75999 7.43004 8.10999C7.51004 8.15999 7.59004 8.18999 7.67004 8.21999C7.90004 8.30999 8.15004 8.35999 8.42004 8.35999C8.69004 8.35999 8.94004 8.30999 9.17004 8.21999C9.26004 8.18999 9.34004 8.14999 9.41004 8.10999L8.48004 7.17999Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M10.55 6.23C10.55 7.04 10.09 7.75 9.41004 8.11L8.48004 7.18C8.48004 7.18 8.44004 7.14 8.42004 7.12C7.83004 6.56 7.06004 6.25 6.29004 6.22C6.29004 5.04 7.24004 4.09 8.42004 4.09C9.24004 4.09 9.95004 4.56 10.3 5.24C10.46 5.53 10.55 5.87 10.55 6.23Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M19.21 2.75H4.79004C4.38004 2.75 4.04004 2.41 4.04004 2C4.04004 1.59 4.38004 1.25 4.79004 1.25H19.2C19.61 1.25 19.95 1.59 19.95 2C19.95 2.41 19.61 2.75 19.2 2.75H19.21Z" fill="white" style="fill: var(--fillg);"/>
+</g>
+<defs>
+<clipPath id="clip0_655_9477">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
           </div>
           <h3>{{ 'home.portfolio.aromatic.title' | translate }}</h3>
           <p>{{ 'home.portfolio.aromatic.description' | translate }}</p>
@@ -194,15 +283,31 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Dry Crops">
+          <img src="/assets/dry-crops.jpg" alt="Dry Crops">
           <div class="image-label">Dry crops</div>
         </div>
         <div class="card-content">
           <div class="card-number">03</div>
           <div class="card-icon-wrapper">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 3v18M8 21h8M8 3h8M8 9l8-6M8 15l8 6"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" class="card-icon" stroke="currentColor">
+<g clip-path="url(#clip0_655_9458)">
+<path d="M11.25 2C11.25 1.58588 11.5859 1.25015 12 1.25C12.4142 1.25 12.75 1.58579 12.75 2C12.75 3.63421 11.4145 4.96973 9.78027 4.96973C9.36606 4.96973 9.03027 4.63394 9.03027 4.21973C9.03042 3.80564 9.36615 3.46973 9.78027 3.46973C10.5861 3.46973 11.25 2.80579 11.25 2Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 2C11.25 1.58579 11.5858 1.25 12 1.25C12.4142 1.25 12.75 1.58579 12.75 2C12.75 2.8057 13.4141 3.46958 14.2197 3.46973C14.6338 3.46973 14.9696 3.80564 14.9697 4.21973C14.9697 4.63394 14.6339 4.96973 14.2197 4.96973C12.5856 4.96958 11.25 3.63412 11.25 2Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 5.33002C11.25 4.9158 11.5858 4.58002 12 4.58002C12.4142 4.58006 12.75 4.91583 12.75 5.33002C12.75 7.63423 10.9741 9.4101 8.66992 9.4101C8.25573 9.4101 7.91996 9.07427 7.91992 8.6601C7.91992 8.24588 8.25571 7.9101 8.66992 7.9101C10.1457 7.9101 11.25 6.8058 11.25 5.33002Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 5.34003C11.25 4.92581 11.5858 4.59003 12 4.59003C12.4142 4.59003 12.75 4.92581 12.75 5.34003C12.75 6.81581 13.8543 7.9201 15.3301 7.9201C15.7443 7.92015 16.0801 8.25592 16.0801 8.6701C16.08 9.08426 15.7442 9.42006 15.3301 9.4201C13.0259 9.4201 11.25 7.64424 11.25 5.34003Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 8.66998C11.25 8.25577 11.5858 7.91998 12 7.91998C12.414 7.92022 12.75 8.25591 12.75 8.66998C12.75 11.5242 10.4138 13.8604 7.55957 13.8604C7.1455 13.8604 6.8098 13.5244 6.80957 13.1104C6.80957 12.6962 7.14536 12.3604 7.55957 12.3604C9.58536 12.3604 11.25 10.6958 11.25 8.66998Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 8.66998C11.25 8.25577 11.5858 7.91998 12 7.91998C12.4142 7.91998 12.75 8.25577 12.75 8.66998C12.75 10.6958 14.4146 12.3604 16.4404 12.3604C16.8544 12.3606 17.1904 12.6963 17.1904 13.1104C17.1902 13.5243 16.8543 13.8602 16.4404 13.8604C13.5862 13.8604 11.25 11.5242 11.25 8.66998Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 12C11.25 11.5859 11.586 11.2502 12 11.25C12.4142 11.25 12.75 11.5858 12.75 12C12.75 15.5233 9.97553 18.3096 6.44043 18.3096C6.02622 18.3096 5.69043 17.9738 5.69043 17.5596C5.69066 17.1456 6.02636 16.8096 6.44043 16.8096C9.14533 16.8096 11.25 14.6967 11.25 12Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 12C11.25 11.5858 11.5858 11.25 12 11.25C12.4142 11.25 12.75 11.5858 12.75 12C12.75 14.7048 14.8631 16.8093 17.5596 16.8096C17.9736 16.8096 18.3093 17.1456 18.3096 17.5596C18.3096 17.9738 17.9738 18.3096 17.5596 18.3096C14.0364 18.3093 11.25 15.535 11.25 12Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.25 20.8896V2C11.25 1.58579 11.5858 1.25 12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V20.8896C12.75 21.3039 12.4142 21.6396 12 21.6396C11.5858 21.6396 11.25 21.3039 11.25 20.8896Z" fill="white" style="fill: var(--fillg);"/>
+<path d="M11.9964 20.17C14.8554 20.17 17.7476 20.5356 20.0159 21.2881C20.409 21.4186 20.6219 21.8433 20.4915 22.2364C20.361 22.6292 19.9372 22.8421 19.5442 22.712C17.4727 22.0246 14.7497 21.67 11.9964 21.67C9.24297 21.67 6.52262 22.0248 4.45634 22.712C4.06341 22.8424 3.63877 22.6293 3.5081 22.2364C3.3776 21.8434 3.59074 21.4188 3.98368 21.2881C6.24735 20.5354 9.13744 20.17 11.9964 20.17Z" fill="white" style="fill: var(--fillg);"/>
+</g>
+<defs>
+<clipPath id="clip0_655_9458">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
           </div>
           <h3>{{ 'home.portfolio.dry.title' | translate }}</h3>
           <p>{{ 'home.portfolio.dry.description' | translate }}</p>
@@ -221,22 +326,28 @@
     <div class="values-grid">
       <div class="value-card">
         <div class="value-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Quality">
+          <img src="/assets/quality.jpeg" alt="Quality">
         </div>
         <div class="value-content">
           <div class="value-number">01</div>
           <div class="value-icon-wrapper">
-            <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 23 17 13.89"/>
-              <line x1="12" y1="2" x2="12" y2="4"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="value-icon" stroke-width="2" >
+            <g clip-path="url(#clip0_655_7266)">
+            <path d="M7.56 2C7.56 5.11 10 7.56 13.12 7.56C10.01 7.56 7.56 10 7.56 13.12C7.56 10.01 5.12 7.56 2 7.56C5.11 7.56 7.56 5.12 7.56 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M16.4399 10.89C16.4399 14 18.8799 16.45 21.9999 16.45C18.8899 16.45 16.4399 18.89 16.4399 22.01C16.4399 18.9 13.9999 16.45 10.8799 16.45C13.9899 16.45 16.4399 14.01 16.4399 10.89Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+            <clipPath id="clip0_655_7266">
+            <rect width="24" height="24" fill="white"/>
+            </clipPath>
+            </defs>
             </svg>
           </div>
           <h3>{{ 'home.coreValues.quality.title' | translate }}</h3>
           <p>{{ 'home.coreValues.quality.description' | translate }}</p>
         </div>
       </div>
-      <div class="value-card">
+      <!-- <div class="value-card">
         <div class="value-image">
           <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Reliability">
         </div>
@@ -252,10 +363,10 @@
           <h3>{{ 'home.coreValues.reliability.title' | translate }}</h3>
           <p>{{ 'home.coreValues.reliability.description' | translate }}</p>
         </div>
-      </div>
+      </div> -->
       <div class="value-card">
         <div class="value-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Flexibility">
+          <img src="/assets/delivery.jpeg" alt="Flexibility">
         </div>
         <div class="value-content">
           <div class="value-number">03</div>
@@ -272,7 +383,7 @@
       </div>
       <div class="value-card">
         <div class="value-image">
-          <img src="/assets/vecteezy_a-sunlit-greenhouse-covered-with-thriving-plants-deserted_70524748.jpeg" alt="Professionalism">
+          <img src="/assets/professionalism2.jpeg" alt="Professionalism">
         </div>
         <div class="value-content">
           <div class="value-number">04</div>
@@ -288,7 +399,7 @@
       </div>
       <div class="value-card">
         <div class="value-image">
-          <img src="/assets/greenhouse.jpeg" alt="Partnerships">
+          <img src="/assets/partnership.jpg" alt="Partnerships">
         </div>
         <div class="value-content">
           <div class="value-number">05</div>
@@ -406,7 +517,7 @@
     <div class="capabilities-grid">
       <div class="capability-card card-1">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Product Sourcing">
+          <img src="/assets/product-sourcing-and-production.jpg" alt="Product Sourcing">
           <div class="image-overlay"></div>
           <div class="step-number">01</div>
         </div>
@@ -418,7 +529,7 @@
 
       <div class="capability-card card-2">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Quality Selection">
+          <img src="/assets/quality.jpeg" alt="Quality Selection">
           <div class="image-overlay"></div>
           <div class="step-number">02</div>
         </div>
@@ -430,7 +541,7 @@
 
       <div class="capability-card card-3">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Sorting">
+          <img src="/assets/sorting.jpg" alt="Sorting">
           <div class="image-overlay"></div>
           <div class="step-number">03</div>
         </div>
@@ -442,7 +553,7 @@
 
       <div class="capability-card card-4">
         <div class="card-image">
-          <img src="/assets/vecteezy_a-sunlit-greenhouse-covered-with-thriving-plants-deserted_70524748.jpeg" alt="Grading">
+          <img src="/assets/grading.jpg" alt="Grading">
           <div class="image-overlay"></div>
           <div class="step-number">04</div>
         </div>
@@ -454,7 +565,7 @@
 
       <div class="capability-card card-5">
         <div class="card-image">
-          <img src="/assets/greenhouse.jpeg" alt="Preparation">
+          <img src="/assets/preliminary-preparation.jpg" alt="Preparation">
           <div class="image-overlay"></div>
           <div class="step-number">05</div>
         </div>
@@ -466,7 +577,7 @@
 
       <div class="capability-card card-6">
         <div class="card-image">
-          <img src="/assets/packaging.avif" alt="Packaging">
+          <img src="/assets/packaging.jpeg" alt="Packaging">
           <div class="image-overlay"></div>
           <div class="step-number">06</div>
         </div>
@@ -478,7 +589,7 @@
 
       <div class="capability-card card-7">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg" alt="Order Fulfillment">
+          <img src="/assets/order.jpeg" alt="Order Fulfillment">
           <div class="image-overlay"></div>
           <div class="step-number">07</div>
         </div>
@@ -490,7 +601,7 @@
 
       <div class="capability-card card-8">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-organic-vegetables-on-wooden-table_38994870.jpg" alt="Transportation">
+          <img src="/assets/transportation-coordination.jpg" alt="Transportation">
           <div class="image-overlay"></div>
           <div class="step-number">08</div>
         </div>
@@ -502,7 +613,7 @@
 
       <div class="capability-card card-9">
         <div class="card-image">
-          <img src="/assets/vecteezy_ai-generated-fresh-vegetables-on-wooden-table-healthy_39620932.jpg" alt="Delivery">
+          <img src="/assets/delivery.jpg" alt="Delivery">
           <div class="image-overlay"></div>
           <div class="step-number">09</div>
         </div>

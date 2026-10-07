@@ -1,23 +1,59 @@
 <nav class="navbar">
+  <div class="nav-growth-line"></div>
   <div class="container">
     <div class="navbar-brand">
-      <a routerLink="/">
+      <a routerLink="/" class="logo-wrapper">
         <img src="/assets/logo.png" alt="Fresh Vibes" class="logo-image">
+
       </a>
     </div>
 
     <div class="navbar-menu">
-      <a routerLink="/" class="nav-link">{{ 'nav.home' | translate }}</a>
-      <a routerLink="/about" class="nav-link">{{ 'nav.about' | translate }}</a>
-      <a routerLink="/products" class="nav-link">{{ 'nav.products' | translate }}</a>
-      <a routerLink="/contact" class="nav-link">{{ 'nav.contact' | translate }}</a>
+      <a routerLink="/" class="nav-link">
+        <span class="link-text">{{ 'nav.home' | translate }}</span>
+        <svg class="link-leaf" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2C8 2 5 4 5 8C5 10 6.5 12 8 12C9.5 12 11 10 11 8C11 4 8 2 8 2Z" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </a>
+      <a routerLink="/about" class="nav-link">
+        <span class="link-text">{{ 'nav.about' | translate }}</span>
+        <svg class="link-leaf" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2C8 2 5 4 5 8C5 10 6.5 12 8 12C9.5 12 11 10 11 8C11 4 8 2 8 2Z" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </a>
+      <a routerLink="/products" class="nav-link">
+        <span class="link-text">{{ 'nav.products' | translate }}</span>
+        <svg class="link-leaf" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2C8 2 5 4 5 8C5 10 6.5 12 8 12C9.5 12 11 10 11 8C11 4 8 2 8 2Z" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </a>
+      <a routerLink="/contact" class="nav-link">
+        <span class="link-text">{{ 'nav.contact' | translate }}</span>
+        <svg class="link-leaf" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2C8 2 5 4 5 8C5 10 6.5 12 8 12C9.5 12 11 10 11 8C11 4 8 2 8 2Z" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </a>
     </div>
 
     <div class="navbar-actions">
       <button class="lang-toggle" (click)="switchLanguage(currentLang === 'en' ? 'ar' : 'en')">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
         {{ currentLang === 'en' ? 'العربية' : 'English' }}
       </button>
-      <a *ngIf="isAdmin()" routerLink="/dashboard" class="btn-login">{{ 'nav.dashboard' | translate }}</a>
+      <a *ngIf="isAdmin()" routerLink="/dashboard" class="btn-login">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" rx="1"/>
+        </svg>
+        {{ 'nav.dashboard' | translate }}
+      </a>
     </div>
   </div>
+
+
 </nav>

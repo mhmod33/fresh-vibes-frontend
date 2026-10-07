@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../../shared/translate.pipe';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from "../../../../environments/environment";
 interface Product {
   id: number;
   name: string;
@@ -49,7 +49,7 @@ export class ProductsComponent implements OnInit {
     { id: 'dry', name: 'products.categories.dry' }
   ];
 
-  private apiUrl = 'http://localhost:8000/products';
+  private apiUrl = environment.apiUrl + '/products';
 
   constructor(
     private http: HttpClient,

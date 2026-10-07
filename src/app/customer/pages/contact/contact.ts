@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../../shared/translate.pipe';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-contact',
@@ -24,7 +25,7 @@ export class ContactComponent {
   successMessage = '';
   errorMessage = '';
 
-  private apiUrl = 'http://localhost:8000/contact';
+  private apiUrl = environment.apiUrl + '/contact';
 
   constructor(private http: HttpClient) {}
 
