@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -6,6 +6,7 @@ import { TranslatePipe } from '../../../shared/translate.pipe';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { finalize, TimeoutError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -18,35 +19,51 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   loading = false;
   errorMessage = '';
+  successMessage = '';
+  deletingProductIds = new Set<number>();
 
   constructor(
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    this.checkAuthentication();
+    if (!this.checkAuthentication()) return;
     this.loadProducts();
   }
 
-  checkAuthentication() {
+  checkAuthentication(): boolean {
     const token = localStorage.getItem('authToken');
     if (!token) {
       this.router.navigate(['/login']);
+      return false;
     }
+    return true;
   }
 
   loadProducts() {
     this.loading = true;
     this.errorMessage = '';
+    this.cdr.detectChanges();
 
-    this.productService.getProducts().subscribe({
+    this.productService.getProducts().pipe(
+      timeout({ first: 10_000 }),
+      finalize(() => {
+        this.loading = false;
+        this.cdr.detectChanges();
+      })
+    ).subscribe({
       next: (response: any) => {
         this.products = response.data || response;
-        this.loading = false;
+        this.cdr.detectChanges();
       },
-      error: (error: HttpErrorResponse) => {
-        this.loading = false;
+      error: (error: HttpErrorResponse | TimeoutError) => {
+        if (error instanceof TimeoutError) {
+          this.errorMessage = 'Loading products timed out. Please try again.';
+          this.cdr.detectChanges();
+          return;
+        }
 
         // Handle "Unauthenticated" error
         if (error.error && error.error.message === 'Unauthenticated.') {
@@ -72,6 +89,7 @@ export class ProductsComponent implements OnInit {
         }
 
         console.error('Error loading products:', error);
+        this.cdr.detectChanges();
       }
     });
   }
@@ -84,17 +102,34 @@ export class ProductsComponent implements OnInit {
   deleteProduct(id: number | undefined) {
     if (!id) return;
 
-    if (confirm('Are you sure you want to delete this product?')) {
-      this.productService.deleteProduct(id).subscribe({
-        next: () => {
-          this.products = this.products.filter(p => p.id !== id);
-        },
-        error: (error) => {
-          console.error('Error deleting product:', error);
-          alert('Failed to delete product');
-        }
-      });
-    }
+    if (!window.confirm('Are you sure you want to delete this product?')) return;
+
+    this.errorMessage = '';
+    this.successMessage = '';
+    this.deletingProductIds.add(id);
+    this.cdr.detectChanges();
+
+    this.productService.deleteProduct(id).pipe(
+      finalize(() => {
+        this.deletingProductIds.delete(id);
+        this.cdr.detectChanges();
+      })
+    ).subscribe({
+      next: () => {
+        this.products = this.products.filter(p => p.id !== id);
+        this.successMessage = 'Product deleted successfully.';
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.error('Error deleting product:', error);
+        this.errorMessage = error.error?.message || 'Failed to delete product. Please try again.';
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  isDeleting(id: number | undefined): boolean {
+    return id !== undefined && this.deletingProductIds.has(id);
   }
 
   addNewProduct() {

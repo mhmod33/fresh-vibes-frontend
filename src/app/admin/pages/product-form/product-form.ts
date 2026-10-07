@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../../shared/translate.pipe';
 import { ProductService } from '../../../services/product.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Product } from '../../../models/product.model';
+import { environment } from '../../../../environments/environment';
+import { finalize, TimeoutError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, FormsModule, TranslatePipe],
   templateUrl: './product-form.html',
   styleUrl: './product-form.css'
 })
 export class ProductFormComponent implements OnInit {
   isEditMode = false;
   productId: number | null = null;
-  selectedFile: File | null = null;
   imagePreview: string | null = null;
-  isLoading = false;
+  isLoading = signal(false);
+  isSaving = false;
   errorMessage = '';
 
   productForm = {
@@ -27,7 +31,8 @@ export class ProductFormComponent implements OnInit {
     description: '',
     price: 0,
     stock: 0,
-    is_active: true
+    is_active: true,
+    image: ''
   };
 
   categories = [
@@ -39,7 +44,8 @@ export class ProductFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -61,32 +67,50 @@ export class ProductFormComponent implements OnInit {
   loadProduct() {
     if (!this.productId) return;
 
-    this.isLoading = true;
+    this.isLoading.set(true);
     this.errorMessage = '';
 
-    this.productService.getProduct(this.productId).subscribe({
-      next: (product) => {
+    this.productService.getProduct(this.productId).pipe(
+      timeout({ first: 15_000 }),
+      finalize(() => {
+        this.isLoading.set(false);
+        this.cdr.detectChanges();
+      })
+    ).subscribe({
+      next: (response: Product | { data: Product }) => {
+        const product = 'data' in response ? response.data : response;
+        const category = product.category || 'fresh';
+
+        if (!this.categories.some(item => item.id === category)) {
+          this.categories = [{ id: category, name: category }, ...this.categories];
+        }
+
         this.productForm = {
           name: product.name,
-          category: product.category || 'fresh',
+          category,
           description: product.description,
           price: typeof product.price === 'string' ? parseFloat(product.price) : product.price,
           stock: product.stock,
-          is_active: product.is_active
+          is_active: product.is_active,
+          image: product.image || product.image_url || ''
         };
 
-        // Handle image preview for existing product
-        if (product.image) {
-          this.imagePreview = product.image;
+        const image = product.image || product.image_url;
+        if (image) {
+          this.updateImagePreview(image);
+        } else {
+          this.imagePreview = null;
         }
 
-        this.isLoading = false;
+        this.isLoading.set(false);
+        this.cdr.detectChanges();
       },
-      error: (error: HttpErrorResponse) => {
+      error: (error: HttpErrorResponse | TimeoutError) => {
         console.error('Error loading product:', error);
-        this.isLoading = false;
 
-        if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
+        if (error instanceof TimeoutError) {
+          this.errorMessage = 'Loading product details timed out. Please try again.';
+        } else if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
           this.errorMessage = 'Your session has expired. Please login again.';
           setTimeout(() => {
             localStorage.removeItem('authToken');
@@ -100,50 +124,25 @@ export class ProductFormComponent implements OnInit {
         } else {
           this.errorMessage = error.error?.message || 'Failed to load product';
         }
+        this.cdr.detectChanges();
       }
     });
   }
 
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-
-      // Validate file type
-      if (!file.type.startsWith('image/')) {
-        this.errorMessage = 'Please select an image file';
-        return;
-      }
-
-      // Validate file size (2MB max)
-      if (file.size > 2 * 1024 * 1024) {
-        this.errorMessage = 'Image size must be less than 2MB';
-        return;
-      }
-
-      this.selectedFile = file;
-      this.errorMessage = '';
-
-      // Create preview
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        this.imagePreview = e.target?.result as string;
-      };
-      reader.readAsDataURL(file);
-    }
+  onImageUrlChange(image: string) {
+    this.errorMessage = '';
+    this.updateImagePreview(image);
   }
 
   removeImage() {
-    this.selectedFile = null;
+    this.productForm.image = '';
     this.imagePreview = null;
-    const fileInput = document.getElementById('image') as HTMLInputElement;
-    if (fileInput) {
-      fileInput.value = '';
-    }
   }
 
   onSubmit() {
-    this.isLoading = true;
+    if (this.isLoading() || this.isSaving) return;
+
+    this.isSaving = true;
     this.errorMessage = '';
 
     const formData = new FormData();
@@ -153,22 +152,19 @@ export class ProductFormComponent implements OnInit {
     formData.append('stock', this.productForm.stock.toString());
     formData.append('category', this.productForm.category);
     formData.append('is_active', this.productForm.is_active ? '1' : '0');
-
-    if (this.selectedFile) {
-      formData.append('image', this.selectedFile);
-    }
+    formData.append('image', this.productForm.image);
 
     if (this.isEditMode && this.productId) {
       formData.append('_method', 'PUT');
 
       this.productService.updateProduct(this.productId, formData).subscribe({
         next: () => {
-          this.isLoading = false;
+          this.isSaving = false;
           this.router.navigate(['/admin/products']);
         },
         error: (error: HttpErrorResponse) => {
           console.error('Error updating product:', error);
-          this.isLoading = false;
+          this.isSaving = false;
 
           if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
             this.errorMessage = 'Your session has expired. Please login again.';
@@ -188,12 +184,12 @@ export class ProductFormComponent implements OnInit {
     } else {
       this.productService.createProduct(formData).subscribe({
         next: () => {
-          this.isLoading = false;
+          this.isSaving = false;
           this.router.navigate(['/admin/products']);
         },
         error: (error: HttpErrorResponse) => {
           console.error('Error creating product:', error);
-          this.isLoading = false;
+          this.isSaving = false;
 
           if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
             this.errorMessage = 'Your session has expired. Please login again.';
@@ -215,5 +211,19 @@ export class ProductFormComponent implements OnInit {
 
   onCancel() {
     this.router.navigate(['/admin/products']);
+  }
+
+  private updateImagePreview(image: string) {
+    if (!image.trim()) {
+      this.imagePreview = null;
+      return;
+    }
+
+    try {
+      this.imagePreview = new URL(image, environment.apiUrl).toString();
+    } catch {
+      this.imagePreview = null;
+      this.errorMessage = 'Enter a valid image URL or path';
+    }
   }
 }

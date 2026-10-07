@@ -16,49 +16,21 @@
   font-size: 14px;
 }
 
-/* Image Upload Section */
+.loading-message {
+  margin-bottom: 16px;
+  color: #164B3A;
+  font-weight: 600;
+}
+
+/* Product image URL and preview */
 .image-upload-section {
   margin-top: 8px;
 }
 
-.file-input {
-  display: none;
-}
-
-.file-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 32px 24px;
-  border: 2px dashed #164B3A;
-  border-radius: 12px;
-  background: #F8FAFC;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.file-label:hover {
-  border-color: #d4af37;
-  background: #FFF;
-  box-shadow: 0 4px 12px rgba(22, 75, 58, 0.1);
-}
-
-.upload-icon {
-  width: 40px;
-  height: 40px;
-  color: #164B3A;
-}
-
-.file-label span:first-of-type {
-  font-size: 15px;
-  color: #164B3A;
-  font-weight: 500;
-}
-
-.file-hint {
-  font-size: 13px;
+.image-url-hint {
+  margin-top: 8px;
   color: #64748B;
+  font-size: 13px;
 }
 
 .image-preview-container {

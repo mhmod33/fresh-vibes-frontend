@@ -47,6 +47,10 @@ export class ProductService {
       'Authorization': `Bearer ${token}`,
       'Accept': 'application/json'
     });
+    if (productData instanceof FormData) {
+      return this.http.post(`${this.apiUrl}/${id}`, productData, { headers });
+    }
+
     return this.http.put(`${this.apiUrl}/${id}`, productData, { headers });
   }
 

@@ -343,6 +343,13 @@
   box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
 }
 
+.btn-edit:disabled,
+.btn-delete:disabled {
+  cursor: wait;
+  opacity: 0.6;
+  transform: none;
+}
+
 .product-thumbnail {
   width: 60px;
   height: 60px;
@@ -549,6 +556,27 @@
   flex-shrink: 0;
 }
 
+.success-banner {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid rgba(22, 75, 58, 0.25);
+  border-radius: var(--radius-xl);
+  background: rgba(112, 166, 91, 0.12);
+  color: #164B3A;
+  font-weight: 600;
+}
+
+.retry-button {
+  margin-left: auto;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -594,4 +622,3 @@
   font-weight: 600;
   font-size: 1rem;
 }
-
