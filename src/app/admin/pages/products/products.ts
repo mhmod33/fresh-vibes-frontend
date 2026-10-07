@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../../shared/translate.pipe';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -16,6 +17,7 @@ import { Product } from '../../../models/product.model';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
   loading = false;
+  errorMessage = '';
 
   constructor(
     private router: Router,
@@ -23,19 +25,53 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.checkAuthentication();
     this.loadProducts();
+  }
+
+  checkAuthentication() {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      this.router.navigate(['/login']);
+    }
   }
 
   loadProducts() {
     this.loading = true;
+    this.errorMessage = '';
+
     this.productService.getProducts().subscribe({
       next: (response: any) => {
         this.products = response.data || response;
         this.loading = false;
       },
-      error: (error) => {
-        console.error('Error loading products:', error);
+      error: (error: HttpErrorResponse) => {
         this.loading = false;
+
+        // Handle "Unauthenticated" error
+        if (error.error && error.error.message === 'Unauthenticated.') {
+          this.errorMessage = 'Your session has expired. Please login again.';
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('user');
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+        } else if (error.error && error.error.message) {
+          this.errorMessage = error.error.message;
+        } else if (error.status === 401) {
+          this.errorMessage = 'Unauthorized. Please login again.';
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('user');
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+        } else if (error.status === 0) {
+          this.errorMessage = 'Unable to connect to server. Please check your internet connection.';
+        } else {
+          this.errorMessage = 'Failed to load products. Please try again.';
+        }
+
+        console.error('Error loading products:', error);
       }
     });
   }

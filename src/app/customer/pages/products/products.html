@@ -59,7 +59,7 @@
             <div class="product-visual">
               <div class="product-image-wrapper">
                 <img
-                  [src]="'/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg'"
+                  [src]="product.image || '/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg'"
                   [alt]="product.name"
                   class="product-image"
                   (error)="onImageError($event)"
@@ -69,7 +69,7 @@
                     <h3>{{ product.name }}</h3>
                     <p class="product-description">{{ product.description }}</p>
                     <div class="product-details">
-                      <span class="product-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span>
+                      <!-- <span class="product-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span> -->
                       <span class="product-stock" [class.low-stock]="product.stock < 50">
                         Stock: {{ product.stock }}
                       </span>
@@ -91,7 +91,7 @@
               </div>
               <div class="product-label">
                 <span class="label-text">{{ product.name }}</span>
-                <span class="label-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span>
+                <!-- <span class="label-price">${{ typeof product.price === 'number' ? product.price.toFixed(2) : product.price }}</span> -->
               </div>
             </div>
           </div>

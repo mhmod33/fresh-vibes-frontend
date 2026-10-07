@@ -5,6 +5,8 @@
     "products": "Products",
     "contact": "Contact",
     "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
     "admin": "Admin Dashboard"
   },
   "home": {

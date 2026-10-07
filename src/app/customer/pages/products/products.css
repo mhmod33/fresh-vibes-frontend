@@ -482,6 +482,7 @@
   display: flex;
   gap: var(--space-md);
   flex-direction: column;
+  margin-top: var(--space-md);
 }
 
 .btn-view-details {

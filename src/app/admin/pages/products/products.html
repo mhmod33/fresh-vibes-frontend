@@ -1,7 +1,7 @@
 <div class="admin-layout">
   <aside class="admin-sidebar">
     <div class="sidebar-header">
-      <img src="/assets/logo-white.jpeg" alt="Fresh Vibes" class="sidebar-logo">
+      <img src="/assets/logo.png" alt="Fresh Vibes" class="sidebar-logo">
     </div>
 
     <nav class="sidebar-nav">
@@ -55,7 +55,23 @@
     </header>
 
     <div class="products-content">
-      <div class="products-table-wrapper">
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="error-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+
+      <div class="products-table-wrapper" *ngIf="!loading && !errorMessage">
         <table class="products-table">
           <thead>
             <tr>
@@ -72,7 +88,7 @@
               <tr>
                 <td>
                   <img
-                    [src]="product.image_url || '/assets/placeholder.png'"
+                    [src]="product.image || '/assets/placeholder.png'"
                     [alt]="product.name"
                     class="product-thumbnail"
                     (error)="onImageError($event)"
@@ -86,7 +102,7 @@
                 <td>
                   <span class="category-badge">{{ product.category }}</span>
                 </td>
-                <td>${{ product.price.toFixed(2) }}</td>
+                <td>${{ product.price }}</td>
                 <td>
                   <span class="stock-badge" [class.low-stock]="product.stock < 50">
                     {{ product.stock }}
