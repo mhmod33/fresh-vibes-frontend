@@ -64,8 +64,7 @@ describe('ProductFormComponent', () => {
       description: 'Stylish blue denim jeans with a modern slim fit. Durable and comfortable.',
       price: 79.99,
       stock: 50,
-      is_active: true,
-      image: ''
+      is_active: true
     });
     expect(component.categories[0]).toEqual({ id: 'Clothing', name: 'Clothing' });
     expect(component.imagePreview).toBeNull();
@@ -110,7 +109,7 @@ describe('ProductFormComponent', () => {
     component.productForm.price = 89.99;
     component.productForm.stock = 25;
     component.productForm.category = 'Clothing';
-    component.productForm.image = 'https://example.com/jeans.jpg';
+    component.selectedFile = new File(['image'], 'jeans.jpg', { type: 'image/jpeg' });
 
     component.onSubmit();
 
@@ -121,7 +120,7 @@ describe('ProductFormComponent', () => {
     expect(formData.get('price')).toBe('89.99');
     expect(formData.get('stock')).toBe('25');
     expect(formData.get('category')).toBe('Clothing');
-    expect(formData.get('image')).toBe('https://example.com/jeans.jpg');
+    expect((formData.get('image') as File).name).toBe('jeans.jpg');
     expect(formData.get('_method')).toBe('PUT');
   });
 
@@ -136,7 +135,7 @@ describe('ProductFormComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('Loading product details...');
   });
 
-  it('previews an image URL on the add form', () => {
+  it('previews a selected image on the add form', () => {
     fixture.destroy();
     const route = TestBed.inject(ActivatedRoute);
     vi.spyOn(route.snapshot.paramMap, 'get').mockReturnValue(null);
@@ -144,13 +143,17 @@ describe('ProductFormComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    component.productForm.image = 'https://example.com/product.jpg';
-    component.onImageUrlChange(component.productForm.image);
+    vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:preview-image');
+    const file = new File(['image'], 'new-product.png', { type: 'image/png' });
+    const input = document.createElement('input');
+    Object.defineProperty(input, 'files', { value: [file] });
+    component.onFileSelected({ target: input } as unknown as Event);
 
-    expect(component.imagePreview).toBe('https://example.com/product.jpg');
+    expect(component.selectedFile).toBe(file);
+    expect(component.imagePreview).toBe('blob:preview-image');
   });
 
-  it('sends the image URL as a string when creating a product', () => {
+  it('sends the selected image file when creating a product', () => {
     fixture.destroy();
     const route = TestBed.inject(ActivatedRoute);
     vi.spyOn(route.snapshot.paramMap, 'get').mockReturnValue(null);
@@ -159,11 +162,11 @@ describe('ProductFormComponent', () => {
     fixture.detectChanges();
     productService.createProduct.mockReturnValue(of({}));
     vi.spyOn(TestBed.inject(Router), 'navigate').mockResolvedValue(true);
-    component.productForm.image = 'https://example.com/product.jpg';
+    component.selectedFile = new File(['image'], 'new-product.png', { type: 'image/png' });
 
     component.onSubmit();
 
     const [formData] = productService.createProduct.mock.calls[0];
-    expect(formData.get('image')).toBe('https://example.com/product.jpg');
+    expect((formData.get('image') as File).name).toBe('new-product.png');
   });
 });

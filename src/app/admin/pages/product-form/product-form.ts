@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -17,9 +17,10 @@ import { finalize, TimeoutError, timeout } from 'rxjs';
   templateUrl: './product-form.html',
   styleUrl: './product-form.css'
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, OnDestroy {
   isEditMode = false;
   productId: number | null = null;
+  selectedFile: File | null = null;
   imagePreview: string | null = null;
   isLoading = signal(false);
   isSaving = false;
@@ -31,8 +32,7 @@ export class ProductFormComponent implements OnInit {
     description: '',
     price: 0,
     stock: 0,
-    is_active: true,
-    image: ''
+    is_active: true
   };
 
   categories = [
@@ -64,6 +64,10 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    this.revokeObjectUrlPreview();
+  }
+
   loadProduct() {
     if (!this.productId) return;
 
@@ -91,13 +95,12 @@ export class ProductFormComponent implements OnInit {
           description: product.description,
           price: typeof product.price === 'string' ? parseFloat(product.price) : product.price,
           stock: product.stock,
-          is_active: product.is_active,
-          image: product.image || product.image_url || ''
+          is_active: product.is_active
         };
 
         const image = product.image || product.image_url;
         if (image) {
-          this.updateImagePreview(image);
+          this.imagePreview = new URL(image, environment.apiUrl).toString();
         } else {
           this.imagePreview = null;
         }
@@ -129,14 +132,37 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  onImageUrlChange(image: string) {
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      this.errorMessage = 'Please select an image file';
+      input.value = '';
+      return;
+    }
+
+    if (file.size > 15* 1024 * 1024) {
+      this.errorMessage = 'Image size must be 15MB or less';
+      input.value = '';
+      return;
+    }
+
+    this.selectedFile = file;
     this.errorMessage = '';
-    this.updateImagePreview(image);
+    this.revokeObjectUrlPreview();
+    this.imagePreview = URL.createObjectURL(file);
   }
 
   removeImage() {
-    this.productForm.image = '';
+    this.selectedFile = null;
+    this.revokeObjectUrlPreview();
     this.imagePreview = null;
+    const fileInput = document.getElementById('image') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
   }
 
   onSubmit() {
@@ -152,7 +178,10 @@ export class ProductFormComponent implements OnInit {
     formData.append('stock', this.productForm.stock.toString());
     formData.append('category', this.productForm.category);
     formData.append('is_active', this.productForm.is_active ? '1' : '0');
-    formData.append('image', this.productForm.image);
+
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+    }
 
     if (this.isEditMode && this.productId) {
       formData.append('_method', 'PUT');
@@ -213,17 +242,9 @@ export class ProductFormComponent implements OnInit {
     this.router.navigate(['/admin/products']);
   }
 
-  private updateImagePreview(image: string) {
-    if (!image.trim()) {
-      this.imagePreview = null;
-      return;
-    }
-
-    try {
-      this.imagePreview = new URL(image, environment.apiUrl).toString();
-    } catch {
-      this.imagePreview = null;
-      this.errorMessage = 'Enter a valid image URL or path';
+  private revokeObjectUrlPreview() {
+    if (this.imagePreview?.startsWith('blob:')) {
+      URL.revokeObjectURL(this.imagePreview);
     }
   }
 }
