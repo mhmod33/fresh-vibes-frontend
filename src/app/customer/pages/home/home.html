@@ -71,39 +71,44 @@
         <p class="lead-text">{{ 'home.whoWeAre.description' | translate }}</p>
 
         <div class="stats-showcase">
-          <div class="stat-box">
+          <article class="stat-box stat-box--fresh">
+            <div class="stat-kicker">Field-grown</div>
             <div class="stat-visual">
               <div class="stat-circle">
-                <span class="stat-number">3</span>
+                <span class="stat-number" data-target="4">4</span>
               </div>
             </div>
             <div class="stat-info">
               <h4>{{ 'home.whoWeAre.stats.categories' | translate }}</h4>
-              <p>Product Categories</p>
+              <p>Fresh, aromatic, medicinal & dry crops</p>
             </div>
-          </div>
-          <div class="stat-box">
+          </article>
+
+          <article class="stat-box stat-box--segments">
+            <div class="stat-kicker">Target market</div>
             <div class="stat-visual">
               <div class="stat-circle">
-                <span class="stat-number">5</span>
+                <span class="stat-number" data-target="5">5</span>
               </div>
             </div>
             <div class="stat-info">
               <h4>{{ 'home.whoWeAre.stats.segments' | translate }}</h4>
-              <p>Customer Segments</p>
+              <p>Core B2B buyer groups</p>
             </div>
-          </div>
-          <div class="stat-box">
+          </article>
+
+          <article class="stat-box stat-box--capabilities">
+            <div class="stat-kicker">Supply chain</div>
             <div class="stat-visual">
               <div class="stat-circle">
-                <span class="stat-number">9</span>
+                <span class="stat-number" data-target="9">9</span>
               </div>
             </div>
             <div class="stat-info">
               <h4>{{ 'home.whoWeAre.stats.capabilities' | translate }}</h4>
-              <p>Supply Capabilities</p>
+              <p>Production and fulfillment capabilities</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
 
@@ -121,10 +126,16 @@
               <span>Our Brand</span>
             </div>
           </div>
-          <div class="gallery-item">
-            <img src="/assets/aromatic.jpeg" alt="Aromatic Herbs">
-            <div class="gallery-overlay">
-              <span>Aromatic Herbs</span>
+          <div class="gallery-item herb-feature">
+            <img src="/assets/greenhouse.jpeg" alt="Fresh aromatic herbs and medicinal crops">
+            <div class="herb-overlay">
+              <h3>Freshly Gathered, Perfectly Packed</h3>
+              <p>Rosemary, mint, sage and more—crafted for flavor, wellness, and premium supply consistency.</p>
+              <!-- <ul class="herb-list">
+                <li>Rosemary</li>
+                <li>Mint</li>
+                <li>Sage</li>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -226,8 +237,8 @@
       </div>
       <div class="portfolio-card">
         <div class="card-image">
-          <img src="/assets/aromatic-plants.jpeg" alt="Aromatic Plants">
-          <div class="image-label">Aromatic plants</div>
+          <img src="/assets/aromatic-plants.jpeg" alt="Aromatic herbs and medicinal crops">
+          <div class="image-label">Aromatic Herbs</div>
         </div>
         <div class="card-content">
           <div class="card-number">02</div>
