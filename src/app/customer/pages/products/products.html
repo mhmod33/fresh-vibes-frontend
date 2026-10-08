@@ -59,7 +59,7 @@
             <div class="product-visual">
               <div class="product-image-wrapper">
                 <img
-                  [src]="product.image || '/assets/fresh_vibes_whatsapp_profile.png'"
+                  [src]="productImageUrl(product)"
                   [alt]="product.name"
                   class="product-image"
                   (error)="onImageError($event)"

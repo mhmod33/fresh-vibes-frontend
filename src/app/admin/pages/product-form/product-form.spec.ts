@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, provideRouter, Router } from '@angular/router';
-import { NEVER, of, Subject } from 'rxjs';
+import { NEVER, of, Subject, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 import { ProductService } from '../../../services/product.service';
 import { ProductFormComponent } from './product-form';
 
@@ -122,6 +123,26 @@ describe('ProductFormComponent', () => {
     expect(formData.get('category')).toBe('Clothing');
     expect((formData.get('image') as File).name).toBe('jeans.jpg');
     expect(formData.get('_method')).toBe('PUT');
+  });
+
+  it('clears the saving state and displays image validation errors', () => {
+    fixture.detectChanges();
+    productService.updateProduct.mockReturnValue(throwError(() => new HttpErrorResponse({
+      status: 422,
+      error: {
+        message: 'The image field must not be greater than 2048 kilobytes.',
+        errors: {
+          image: ['The image field must not be greater than 2048 kilobytes.']
+        }
+      }
+    })));
+
+    component.onSubmit();
+    fixture.detectChanges();
+
+    expect(component.isSaving).toBe(false);
+    expect(component.errorMessage).toBe('The image field must not be greater than 2048 kilobytes.');
+    expect(fixture.nativeElement.textContent).not.toContain('Saving...');
   });
 
   it('does not show the saving state while product details are loading', () => {

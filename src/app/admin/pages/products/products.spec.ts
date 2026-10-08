@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { NEVER, of } from 'rxjs';
 import { ProductService } from '../../../services/product.service';
 import { ProductsComponent } from './products';
+import { environment } from '../../../../environments/environment';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -74,6 +75,27 @@ describe('ProductsComponent', () => {
 
     expect(fixture.nativeElement.textContent).toContain('Loaded product');
     expect(fixture.nativeElement.textContent).not.toContain('Loading products...');
+  });
+
+  it('renders the API-provided image URL for a product', () => {
+    productService.getProducts.mockReturnValue(of({
+      data: [{
+        id: 3,
+        name: 'Rosemary',
+        description: 'Test',
+        price: 10,
+        stock: 5,
+        image: 'products/rosemary.jpg',
+        image_url: '/storage/products/rosemary.jpg',
+        category: 'fresh',
+        is_active: true
+      }]
+    }));
+
+    fixture.detectChanges();
+
+    const image = fixture.nativeElement.querySelector('.product-thumbnail') as HTMLImageElement;
+    expect(image.getAttribute('src')).toBe(new URL('/storage/products/rosemary.jpg', environment.apiUrl).toString());
   });
 
   it('deletes a product after confirmation and shows success', () => {

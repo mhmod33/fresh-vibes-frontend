@@ -92,7 +92,7 @@
               <tr>
                 <td>
                   <img
-                    [src]="product.image || '/assets/fresh_vibes_whatsapp_profile.png'"
+                    [src]="productImageUrl(product)"
                     [alt]="product.name"
                     class="product-thumbnail"
                     (error)="onImageError($event)"

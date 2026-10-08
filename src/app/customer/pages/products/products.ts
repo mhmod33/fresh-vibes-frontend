@@ -12,6 +12,7 @@ interface Product {
   price: number | string;
   stock: number;
   image: string | null;
+  image_url?: string | null;
   category: string;
   is_active: boolean;
   created_at?: string;
@@ -136,6 +137,13 @@ export class ProductsComponent implements OnInit {
       case 'dry': return '#ff8c00';
       default: return '#1a4d2e';
     }
+  }
+
+  productImageUrl(product: Product): string {
+    const image = product.image_url || product.image;
+    return image
+      ? new URL(image, environment.apiUrl).toString()
+      : '/assets/vecteezy_ai-generated-fresh-healthy-vegetables-on-rustic-wooden_39620296.jpg';
   }
 
   onImageError(event: Event) {

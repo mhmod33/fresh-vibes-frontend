@@ -6,6 +6,7 @@ import { TranslatePipe } from '../../../shared/translate.pipe';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 import { finalize, TimeoutError, timeout } from 'rxjs';
 
 @Component({
@@ -130,6 +131,11 @@ export class ProductsComponent implements OnInit {
 
   isDeleting(id: number | undefined): boolean {
     return id !== undefined && this.deletingProductIds.has(id);
+  }
+
+  productImageUrl(product: Product): string {
+    const image = product.image_url || product.image;
+    return image ? new URL(image, environment.apiUrl).toString() : '';
   }
 
   addNewProduct() {

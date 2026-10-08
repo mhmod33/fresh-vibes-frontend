@@ -143,8 +143,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (file.size > 15* 1024 * 1024) {
-      this.errorMessage = 'Image size must be 15MB or less';
+    if (file.size > 20 * 1024 * 1024) {
+      this.errorMessage = 'Image size must be 20MB or less';
       input.value = '';
       return;
     }
@@ -183,59 +183,38 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       formData.append('image', this.selectedFile);
     }
 
+    let saveRequest;
     if (this.isEditMode && this.productId) {
       formData.append('_method', 'PUT');
-
-      this.productService.updateProduct(this.productId, formData).subscribe({
-        next: () => {
-          this.isSaving = false;
-          this.router.navigate(['/admin/products']);
-        },
-        error: (error: HttpErrorResponse) => {
-          console.error('Error updating product:', error);
-          this.isSaving = false;
-
-          if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
-            this.errorMessage = 'Your session has expired. Please login again.';
-            setTimeout(() => {
-              localStorage.removeItem('authToken');
-              localStorage.removeItem('user');
-              this.router.navigate(['/login']);
-            }, 2000);
-          } else if (error.error && error.error.errors) {
-            const errors = error.error.errors;
-            this.errorMessage = Object.values(errors).flat().join(', ');
-          } else {
-            this.errorMessage = error.error?.message || 'Failed to update product';
-          }
-        }
-      });
+      saveRequest = this.productService.updateProduct(this.productId, formData);
     } else {
-      this.productService.createProduct(formData).subscribe({
-        next: () => {
-          this.isSaving = false;
-          this.router.navigate(['/admin/products']);
-        },
-        error: (error: HttpErrorResponse) => {
-          console.error('Error creating product:', error);
-          this.isSaving = false;
-
-          if (error.status === 401 || (error.error && error.error.message === 'Unauthenticated.')) {
-            this.errorMessage = 'Your session has expired. Please login again.';
-            setTimeout(() => {
-              localStorage.removeItem('authToken');
-              localStorage.removeItem('user');
-              this.router.navigate(['/login']);
-            }, 2000);
-          } else if (error.error && error.error.errors) {
-            const errors = error.error.errors;
-            this.errorMessage = Object.values(errors).flat().join(', ');
-          } else {
-            this.errorMessage = error.error?.message || 'Failed to create product';
-          }
-        }
-      });
+      saveRequest = this.productService.createProduct(formData);
     }
+
+    saveRequest.pipe(
+      finalize(() => {
+        this.isSaving = false;
+        this.cdr.detectChanges();
+      })
+    ).subscribe({
+      next: () => this.router.navigate(['/admin/products']),
+      error: (error: HttpErrorResponse) => {
+        console.error('Error saving product:', error);
+
+        if (error.status === 401 || error.error?.message === 'Unauthenticated.') {
+          this.errorMessage = 'Your session has expired. Please login again.';
+          setTimeout(() => {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            this.router.navigate(['/login']);
+          }, 2000);
+        } else if (error.error?.errors) {
+          this.errorMessage = Object.values(error.error.errors).flat().join(', ');
+        } else {
+          this.errorMessage = error.error?.message || 'Failed to save product';
+        }
+      }
+    });
   }
 
   onCancel() {
