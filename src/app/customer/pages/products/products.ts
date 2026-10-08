@@ -48,7 +48,8 @@ export class ProductsComponent implements OnInit {
     { id: 'all', name: 'products.categories.all' },
     { id: 'fresh', name: 'products.categories.fresh' },
     { id: 'aromatic', name: 'products.categories.aromatic' },
-    { id: 'dry', name: 'products.categories.dry' }
+    { id: 'dry', name: 'products.categories.dry' },
+    { id: 'frozen', name: 'products.categories.frozen' }
   ];
 
   private apiUrl = environment.apiUrl + '/products';
@@ -135,6 +136,7 @@ export class ProductsComponent implements OnInit {
       case 'fresh': return '#4a7c59';
       case 'aromatic': return '#8bc34a';
       case 'dry': return '#ff8c00';
+      case 'frozen': return '#47a3d3';
       default: return '#1a4d2e';
     }
   }

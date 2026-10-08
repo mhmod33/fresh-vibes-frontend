@@ -92,6 +92,7 @@ export class ProductDetailComponent implements OnInit {
       case 'fresh': return '#4a7c59';
       case 'aromatic': return '#8bc34a';
       case 'dry': return '#ff8c00';
+      case 'frozen': return '#47a3d3';
       default: return '#1a4d2e';
     }
   }

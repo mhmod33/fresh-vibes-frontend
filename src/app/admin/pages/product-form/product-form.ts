@@ -38,7 +38,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   categories = [
     { id: 'fresh', name: 'Fresh Produce' },
     { id: 'aromatic', name: 'Aromatic & Medicinal' },
-    { id: 'dry', name: 'Dry Crops' }
+    { id: 'dry', name: 'Dry Crops' },
+    { id: 'frozen', name: 'Frozen Crops' }
   ];
 
   constructor(

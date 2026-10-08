@@ -10,12 +10,12 @@
   "home": {
     "hero": {
       "title": "Fresh Agricultural Products",
-      "subtitle": "Professional producer and supplier of fresh, aromatic, medicinal, and dry agricultural crops",
+      "subtitle": "Professional producer and supplier of fresh, aromatic, medicinal, dry, and frozen agricultural crops",
       "cta": "Explore Products"
     },
     "whoWeAre": {
       "title": "Who We Are",
-      "description": "Fresh Vibes is a professional agricultural products producer and supplier, focusing on fresh, aromatic, medicinal, and dry agricultural crops for B2B customers in the Egyptian market.",
+      "description": "Fresh Vibes is a professional agricultural products producer and supplier, focusing on fresh, aromatic, medicinal, dry, and frozen agricultural crops for B2B customers in the Egyptian market.",
       "stats": {
         "categories": "Product categories",
         "products": "Priced products",
@@ -50,6 +50,11 @@
         "title": "Dry Agricultural Crops",
         "description": "Selected dry products according to market and customer requirements.",
         "products": "Onions, Garlic, Sesame"
+      },
+      "frozen": {
+        "title": "Frozen Crops",
+        "description": "Cold-chain processed crops prepared for commercial buyers needing reliable, ready-to-use frozen produce.",
+        "products": "Frozen vegetables & herbs"
       }
     },
     "coreValues": {
@@ -149,7 +154,8 @@
       "all": "All Products",
       "fresh": "Fresh Produce",
       "aromatic": "Aromatic & Medicinal",
-      "dry": "Dry Crops"
+      "dry": "Dry Crops",
+      "frozen": "Frozen Crops"
     },
     "viewDetails": "View Details",
     "buyNow": "Buy Now",
