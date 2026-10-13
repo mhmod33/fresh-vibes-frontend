@@ -108,6 +108,18 @@ describe('ProductsComponent', () => {
     expect(productService.getProducts).toHaveBeenLastCalledWith(2, 12);
   });
 
+  it('searches products and resets pagination to the first page', () => {
+    fixture.detectChanges();
+    component.currentPage = 3;
+    component.searchQuery = '  cucumber  ';
+
+    component.searchProducts();
+
+    expect(component.currentPage).toBe(1);
+    expect(component.appliedSearch).toBe('cucumber');
+    expect(productService.getProducts).toHaveBeenLastCalledWith(1, 12, 'cucumber');
+  });
+
   it('renders the API-provided image URL for a product', () => {
     productService.getProducts.mockReturnValue(of({
       data: [{

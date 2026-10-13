@@ -55,6 +55,22 @@
     </header>
 
     <div class="products-content">
+      <form class="products-search" (ngSubmit)="searchProducts()">
+        <label class="visually-hidden" for="admin-product-search">Search products</label>
+        <input
+          id="admin-product-search"
+          type="search"
+          name="productSearch"
+          [(ngModel)]="searchQuery"
+          (keyup.enter)="searchProducts()"
+          placeholder="Search products..."
+        />
+        <button type="submit" class="btn-search">Search</button>
+        <button *ngIf="searchQuery || appliedSearch" type="button" class="btn-clear-search" (click)="clearSearch()">
+          Clear
+        </button>
+      </form>
+
       <!-- Error Message -->
       <div *ngIf="errorMessage" class="error-banner">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="error-icon">

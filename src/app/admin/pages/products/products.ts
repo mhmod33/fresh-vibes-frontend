@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../../shared/translate.pipe';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product.model';
@@ -12,7 +13,7 @@ import { finalize, TimeoutError, timeout } from 'rxjs';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, TranslatePipe, FormsModule],
   templateUrl: './products.html',
   styleUrl: './products.css'
 })
@@ -26,6 +27,8 @@ export class ProductsComponent implements OnInit {
   lastPage = 1;
   totalProducts = 0;
   perPage = 12;
+  searchQuery = '';
+  appliedSearch = '';
 
   constructor(
     private router: Router,
@@ -52,7 +55,7 @@ export class ProductsComponent implements OnInit {
     this.errorMessage = '';
     this.cdr.detectChanges();
 
-    this.productService.getProducts(this.currentPage, this.perPage).pipe(
+    this.productService.getProducts(this.currentPage, this.perPage, this.appliedSearch).pipe(
       timeout({ first: 10_000 }),
       finalize(() => {
         this.loading = false;
@@ -150,6 +153,17 @@ export class ProductsComponent implements OnInit {
       this.currentPage = page;
       this.loadProducts();
     }
+  }
+
+  searchProducts() {
+    this.appliedSearch = this.searchQuery.trim();
+    this.currentPage = 1;
+    this.loadProducts();
+  }
+
+  clearSearch() {
+    this.searchQuery = '';
+    this.searchProducts();
   }
 
   get pageNumbers(): number[] {

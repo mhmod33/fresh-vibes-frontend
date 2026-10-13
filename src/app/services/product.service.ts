@@ -20,12 +20,17 @@ export class ProductService {
     });
   }
 
-  getProducts(page = 1, perPage = 12): Observable<any> {
+  getProducts(page = 1, perPage = 12, search = ''): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page)
+      .set('per_page', perPage);
+    if (search.trim()) {
+      params = params.set('search', search.trim());
+    }
+
     return this.http.get<any>(this.apiUrl, {
       headers: this.getAuthHeaders(),
-      params: new HttpParams()
-        .set('page', page)
-        .set('per_page', perPage)
+      params
     });
   }
 
