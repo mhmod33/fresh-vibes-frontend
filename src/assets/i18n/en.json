@@ -9,13 +9,13 @@
   },
   "home": {
     "hero": {
-      "title": "Fresh Agricultural Products",
-      "subtitle": "Professional producer and supplier of fresh, aromatic, medicinal, dry, and frozen agricultural crops",
+      "title": "Fresh & Frozen Agricultural Crops",
+      "subtitle": "Professional producer and supplier of fresh and frozen agricultural crops",
       "cta": "Explore Products"
     },
     "whoWeAre": {
       "title": "Who We Are",
-      "description": "Fresh Vibes is a professional agricultural products producer and supplier, focusing on fresh, aromatic, medicinal, dry, and frozen agricultural crops for B2B customers in the Egyptian market.",
+      "description": "Fresh Vibes is a professional agricultural producer and supplier, specializing in fresh and frozen crops for B2B customers in the Egyptian market.",
       "stats": {
         "categories": "Product categories",
         "products": "Priced products",
@@ -32,29 +32,19 @@
         "title": "Our Mission",
         "description": "To provide high-quality agricultural products that meet customer requirements while building reliable, long-term business relationships across the agricultural, food-service, processing, and retail sectors."
       },
-      "tagline": "Connecting agricultural production with the needs of commercial and industrial customers."
+      "tagline": "From our farms to your business: quality produce, grown with care and delivered reliably."
     },
     "portfolio": {
       "title": "Our Product Portfolio",
       "fresh": {
         "title": "Fresh Agricultural Produce",
-        "description": "Fresh crops prepared to customer requirements for quality, grade, size, quantity, packaging, and delivery schedule.",
+        "description": "Fresh crops prepared to customer requirements for quality, quantity, packaging, and delivery schedule.",
         "products": "23 products"
-      },
-      "aromatic": {
-        "title": "Aromatic & Medicinal Plants",
-        "description": "Supplied to exporters, processors, manufacturers, and related industries in forms suited to commercial and industrial use.",
-        "products": "Thyme, Rosemary & more"
-      },
-      "dry": {
-        "title": "Dry Agricultural Crops",
-        "description": "Selected dry products according to market and customer requirements.",
-        "products": "Onions, Garlic, Sesame"
       },
       "frozen": {
         "title": "Frozen Crops",
-        "description": "Cold-chain processed crops prepared for commercial buyers needing reliable, ready-to-use frozen produce.",
-        "products": "Frozen vegetables & herbs"
+        "description": "Carefully prepared and cold-chain handled to meet commercial buyers' quality and delivery requirements.",
+        "products": "Frozen agricultural crops"
       }
     },
     "coreValues": {
@@ -84,7 +74,7 @@
       "title": "Customers We Serve",
       "exporters": {
         "title": "Exporters",
-        "description": "Crops meeting set quality, grading, and packaging needs."
+        "description": "Fresh and frozen crops meeting defined quality and packaging requirements."
       },
       "supermarkets": {
         "title": "Supermarkets & Retailers",
@@ -94,13 +84,13 @@
         "title": "Factories & Processors",
         "description": "Raw materials for food, agricultural, and botanical uses."
       },
-      "wholesalers": {
-        "title": "Wholesalers & Traders",
-        "description": "Suitable quantities and competitive supply."
-      },
       "restaurants": {
-        "title": "Restaurants & Hotels",
-        "description": "Fresh, consistent products with regular delivery."
+        "title": "Restaurants",
+        "description": "Fresh, consistent produce to support your kitchen's daily needs."
+      },
+      "hotels": {
+        "title": "Hotels",
+        "description": "Reliable quality and scheduled deliveries for hotel kitchens."
       }
     },
     "supplyCapabilities": {
@@ -152,9 +142,7 @@
     "title": "Our Products",
     "categories": {
       "all": "All Products",
-      "fresh": "Fresh Produce",
-      "aromatic": "Aromatic & Medicinal",
-      "dry": "Dry Crops",
+      "fresh": "Fresh Crops",
       "frozen": "Frozen Crops"
     },
     "viewDetails": "View Details",

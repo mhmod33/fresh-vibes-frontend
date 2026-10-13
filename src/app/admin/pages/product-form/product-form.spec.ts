@@ -75,6 +75,26 @@ describe('ProductFormComponent', () => {
     expect(fixture.nativeElement.textContent).not.toContain('Loading product details...');
   });
 
+  it('previews the existing image when editing a product', async () => {
+    productService.getProduct.mockReturnValue(of({
+      id: 2,
+      name: 'Fresh produce',
+      category: 'fresh',
+      description: 'Fresh product',
+      price: '10',
+      stock: 5,
+      image: 'products/fresh-produce.jpg',
+      image_url: null,
+      is_active: true
+    }));
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(component.imagePreview).toBe('https://fresh-back.runasp.net/storage/products/fresh-produce.jpg');
+    expect(fixture.nativeElement.querySelector('.image-preview')).not.toBeNull();
+  });
+
   it('updates the edit form when product details arrive asynchronously', async () => {
     const productResponse = new Subject<any>();
     productService.getProduct.mockReturnValue(productResponse);

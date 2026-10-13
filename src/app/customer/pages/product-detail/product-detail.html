@@ -40,7 +40,7 @@
         <!-- Product Info -->
         <div class="product-info-section">
           <div class="product-category-badge" [style.background-color]="getCategoryColor(product.category)">
-            {{ product.category }}
+            {{ ('products.categories.' + product.category) | translate }}
           </div>
 
           <h1 class="product-title">{{ product.name }}</h1>

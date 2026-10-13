@@ -131,10 +131,19 @@
 }
 
 .contact-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   text-decoration: none;
   color: var(--accent);
   font-weight: 700;
+}
+
+.contact-label svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .contact-link:hover {

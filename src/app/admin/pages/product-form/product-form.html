@@ -150,7 +150,7 @@
 
             @if (imagePreview) {
               <div class="image-preview-container">
-                <img [src]="imagePreview" alt="Preview" class="image-preview" />
+                <img [src]="imagePreview" [alt]="productForm.name || 'Product image preview'" class="image-preview" (error)="onPreviewImageError()" />
                 <button type="button" (click)="removeImage()" class="btn-remove-image">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>

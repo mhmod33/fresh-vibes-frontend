@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 import { environment } from '../../environments/environment';
@@ -20,9 +20,12 @@ export class ProductService {
     });
   }
 
-  getProducts(): Observable<any> {
+  getProducts(page = 1, perPage = 12): Observable<any> {
     return this.http.get<any>(this.apiUrl, {
-      headers: this.getAuthHeaders()
+      headers: this.getAuthHeaders(),
+      params: new HttpParams()
+        .set('page', page)
+        .set('per_page', perPage)
     });
   }
 

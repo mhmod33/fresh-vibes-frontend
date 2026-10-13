@@ -2,7 +2,7 @@
   <div class="container">
     <div class="page-header">
       <h1>{{ 'products.title' | translate }}</h1>
-      <p class="page-subtitle">Discover our premium selection of fresh produce and agricultural products</p>
+      <p class="page-subtitle">Discover our premium selection of fresh and frozen crops</p>
     </div>
 
     <!-- Search Bar -->
@@ -75,7 +75,7 @@
                       </span>
                     </div>
                     <span class="product-category-badge" [style.background-color]="getCategoryColor(product.category)">
-                      {{ product.category }}
+                      {{ ('products.categories.' + product.category) | translate }}
                     </span>
                     <div class="overlay-actions">
                       <a [routerLink]="['/products', product.id]" class="btn-view-details">

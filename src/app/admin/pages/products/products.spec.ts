@@ -77,6 +77,37 @@ describe('ProductsComponent', () => {
     expect(fixture.nativeElement.textContent).not.toContain('Loading products...');
   });
 
+  it('requests and renders paginated product results', () => {
+    productService.getProducts.mockReturnValue(of({
+      data: [{
+        id: 1,
+        name: 'Page one product',
+        description: 'Test',
+        price: 10,
+        stock: 5,
+        image: null,
+        category: 'fresh',
+        is_active: true
+      }],
+      current_page: 1,
+      last_page: 3,
+      per_page: 12,
+      total: 25
+    }));
+
+    fixture.detectChanges();
+
+    expect(productService.getProducts).toHaveBeenCalledWith(1, 12);
+    expect(component.totalProducts).toBe(25);
+    expect(component.lastPage).toBe(3);
+    expect(fixture.nativeElement.textContent).toContain('Showing 1–1 of 25 products');
+    expect(fixture.nativeElement.querySelectorAll('.pagination-controls button')).toHaveLength(5);
+
+    component.goToPage(2);
+
+    expect(productService.getProducts).toHaveBeenLastCalledWith(2, 12);
+  });
+
   it('renders the API-provided image URL for a product', () => {
     productService.getProducts.mockReturnValue(of({
       data: [{

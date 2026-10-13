@@ -141,6 +141,30 @@
           </tbody>
         </table>
       </div>
+
+      <div class="products-pagination" *ngIf="!loading && !errorMessage && totalProducts > 0">
+        <span class="pagination-summary">
+          Showing {{ (currentPage - 1) * perPage + 1 }}–{{ (currentPage - 1) * perPage + products.length }}
+          of {{ totalProducts }} products
+        </span>
+        <div class="pagination-controls" *ngIf="lastPage > 1">
+          <button type="button" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+            Previous
+          </button>
+          <button
+            type="button"
+            *ngFor="let page of pageNumbers"
+            [class.active]="page === currentPage"
+            [attr.aria-current]="page === currentPage ? 'page' : null"
+            (click)="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+          <button type="button" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === lastPage">
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </main>
 </div>

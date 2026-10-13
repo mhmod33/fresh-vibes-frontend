@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '../../../shared/translate.pipe';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from "../../../../environments/environment";
@@ -22,7 +23,7 @@ interface Product {
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, TranslatePipe],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css'
 })
@@ -57,6 +58,12 @@ export class ProductDetailComponent implements OnInit {
     this.http.get<Product>(`${this.apiUrl}/${id}`).subscribe({
       next: (product) => {
         console.log('Product loaded:', product);
+        if (product.category !== 'fresh' && product.category !== 'frozen') {
+          this.router.navigate(['/products']);
+          this.loading = false;
+          this.cdr.detectChanges();
+          return;
+        }
         this.product = product;
         this.loading = false;
         this.cdr.detectChanges();
@@ -90,8 +97,6 @@ export class ProductDetailComponent implements OnInit {
   getCategoryColor(category: string): string {
     switch (category) {
       case 'fresh': return '#4a7c59';
-      case 'aromatic': return '#8bc34a';
-      case 'dry': return '#ff8c00';
       case 'frozen': return '#47a3d3';
       default: return '#1a4d2e';
     }

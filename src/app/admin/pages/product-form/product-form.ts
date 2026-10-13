@@ -37,8 +37,6 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
   categories = [
     { id: 'fresh', name: 'Fresh Produce' },
-    { id: 'aromatic', name: 'Aromatic & Medicinal' },
-    { id: 'dry', name: 'Dry Crops' },
     { id: 'frozen', name: 'Frozen Crops' }
   ];
 
@@ -99,9 +97,9 @@ export class ProductFormComponent implements OnInit, OnDestroy {
           is_active: product.is_active
         };
 
-        const image = product.image || product.image_url;
+        const image = product.image_url || product.image;
         if (image) {
-          this.imagePreview = new URL(image, environment.apiUrl).toString();
+          this.imagePreview = this.resolveImageUrl(image);
         } else {
           this.imagePreview = null;
         }
@@ -154,6 +152,13 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     this.errorMessage = '';
     this.revokeObjectUrlPreview();
     this.imagePreview = URL.createObjectURL(file);
+  }
+
+  onPreviewImageError() {
+    this.revokeObjectUrlPreview();
+    this.imagePreview = null;
+    this.errorMessage = 'Unable to load the current product image. You can select a replacement image.';
+    this.cdr.detectChanges();
   }
 
   removeImage() {
@@ -226,5 +231,13 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     if (this.imagePreview?.startsWith('blob:')) {
       URL.revokeObjectURL(this.imagePreview);
     }
+  }
+
+  private resolveImageUrl(image: string): string {
+    if (/^(https?:)?\/\//i.test(image) || image.startsWith('/')) {
+      return new URL(image, environment.apiUrl).toString();
+    }
+
+    return new URL(`/storage/${image.replace(/^storage\//i, '')}`, environment.apiUrl).toString();
   }
 }

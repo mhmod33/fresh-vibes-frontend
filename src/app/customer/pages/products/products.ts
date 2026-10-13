@@ -47,8 +47,6 @@ export class ProductsComponent implements OnInit {
   categories = [
     { id: 'all', name: 'products.categories.all' },
     { id: 'fresh', name: 'products.categories.fresh' },
-    { id: 'aromatic', name: 'products.categories.aromatic' },
-    { id: 'dry', name: 'products.categories.dry' },
     { id: 'frozen', name: 'products.categories.frozen' }
   ];
 
@@ -134,8 +132,6 @@ export class ProductsComponent implements OnInit {
   getCategoryColor(category: string): string {
     switch (category) {
       case 'fresh': return '#4a7c59';
-      case 'aromatic': return '#8bc34a';
-      case 'dry': return '#ff8c00';
       case 'frozen': return '#47a3d3';
       default: return '#1a4d2e';
     }

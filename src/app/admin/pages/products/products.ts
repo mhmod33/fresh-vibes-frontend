@@ -22,6 +22,10 @@ export class ProductsComponent implements OnInit {
   errorMessage = '';
   successMessage = '';
   deletingProductIds = new Set<number>();
+  currentPage = 1;
+  lastPage = 1;
+  totalProducts = 0;
+  perPage = 12;
 
   constructor(
     private router: Router,
@@ -48,7 +52,7 @@ export class ProductsComponent implements OnInit {
     this.errorMessage = '';
     this.cdr.detectChanges();
 
-    this.productService.getProducts().pipe(
+    this.productService.getProducts(this.currentPage, this.perPage).pipe(
       timeout({ first: 10_000 }),
       finalize(() => {
         this.loading = false;
@@ -56,7 +60,10 @@ export class ProductsComponent implements OnInit {
       })
     ).subscribe({
       next: (response: any) => {
-        this.products = response.data || response;
+        this.products = Array.isArray(response) ? response : response.data || [];
+        this.currentPage = response.current_page || this.currentPage;
+        this.lastPage = response.last_page || 1;
+        this.totalProducts = response.total ?? this.products.length;
         this.cdr.detectChanges();
       },
       error: (error: HttpErrorResponse | TimeoutError) => {
@@ -118,7 +125,12 @@ export class ProductsComponent implements OnInit {
     ).subscribe({
       next: () => {
         this.products = this.products.filter(p => p.id !== id);
+        this.totalProducts = Math.max(0, this.totalProducts - 1);
         this.successMessage = 'Product deleted successfully.';
+        if (this.products.length === 0 && this.currentPage > 1) {
+          this.currentPage--;
+          this.loadProducts();
+        }
         this.cdr.detectChanges();
       },
       error: (error) => {
@@ -131,6 +143,25 @@ export class ProductsComponent implements OnInit {
 
   isDeleting(id: number | undefined): boolean {
     return id !== undefined && this.deletingProductIds.has(id);
+  }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.lastPage && page !== this.currentPage) {
+      this.currentPage = page;
+      this.loadProducts();
+    }
+  }
+
+  get pageNumbers(): number[] {
+    const maxVisible = 5;
+    let start = Math.max(1, this.currentPage - Math.floor(maxVisible / 2));
+    let end = Math.min(this.lastPage, start + maxVisible - 1);
+
+    if (end - start < maxVisible - 1) {
+      start = Math.max(1, end - maxVisible + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
   }
 
   productImageUrl(product: Product): string {
